@@ -1,15 +1,4 @@
 <x-esqueleto>
-    <x-nav-bar></x-nav-bar>
-
-    <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Actividad</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100 p-8">
     <div class="container mx-auto">
         <h1 class="text-3xl font-bold mb-6">Registro de Actividad</h1>
         <div class="overflow-x-auto">
@@ -49,8 +38,5 @@
             </table>
         </div>
     </div>
-</body>
-</html>
-
 
 </x-esqueleto>
