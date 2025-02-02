@@ -7,6 +7,7 @@ use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\materiaController;
 use App\Http\Controllers\AltaMatController;
 use App\Http\Controllers\RegistroEvidenciasController;
+use App\Http\Controllers\BitacoraController;
 
 //ruta de todas las paginas web
 Route::get('/', [loginController::class, 'login']);
@@ -15,3 +16,4 @@ Route::get('/perfil', [PerfilController::class, 'perfil'])->name('perfil');
 Route::get('/materias', [materiaController::class, 'materias'])->name('materias');
 Route::get('/altaMat', [AltaMatController::class, 'altaMat'])->name('altaMat');
 Route::get('/registroEvidencias', [RegistroEvidenciasController::class, 'registroEvidencias'])->name('registroEv');
+Route::get('/bitacora', [BitacoraController::class, 'bitacora'])->name('bitacora');

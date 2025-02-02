@@ -11,7 +11,7 @@
         <ul class="mt-4 space-y-2">
             <li><a href="{{ route('home') }}" class="block p-2 hover:bg-blue-800 rounded">Inicio</a></li>
             <li><a href="{{ route('perfil') }}" class="block p-2 hover:bg-blue-800 rounded">Perfil</a></li>
-            <li><a href="{{ route('registroEv')}}" class="block p-2 hover:bg-blue-800 rounded">Alta Evidencias</a></li>
+            <li><a href="{{ route('bitacora')}}" class="block p-2 hover:bg-blue-800 rounded">Bitacora</a></li>
             <li><a href="{{ route('materias')}}" class="block p-2 hover:bg-blue-800 rounded">Materias</a></li>
         </ul>
     </div>

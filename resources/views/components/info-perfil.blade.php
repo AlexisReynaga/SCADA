@@ -1,3 +1,5 @@
+<h1 class="text-center font-bold text-xl">INFORMACION GENERAL</h1>
+
 <div class="flex justify-center items-start min-h-screen bg-gray-100 pt-8">
     <div class="bg-white p-8 rounded-lg shadow-lg max-w-3xl w-full">
         <div class="grid gap-6 mb-6 md:grid-cols-2">

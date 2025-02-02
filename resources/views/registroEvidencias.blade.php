@@ -29,6 +29,9 @@
                     <input type="url" id="link" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="UASLP.COM" required />
                 </div>
             </form>
+
+            <x-button>Guardar</x-button>
         </div>
+        
     </div>
 </x-esqueleto>
