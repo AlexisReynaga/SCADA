@@ -11,7 +11,7 @@
         <ul class="mt-4 space-y-2">
             <li><a href="{{ route('home') }}" class="block p-2 hover:bg-gray-700 rounded">Inicio</a></li>
             <li><a href="{{ route('perfil') }}" class="block p-2 hover:bg-gray-700 rounded">Perfil</a></li>
-            <li><a href="#" class="block p-2 hover:bg-gray-700 rounded">Configuración</a></li>
+            <li><a href="{{ route('altaMat') }}" class="block p-2 hover:bg-gray-700 rounded">Alta de Materia</a></li>
         </ul>
     </div>
 </div>
