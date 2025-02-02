@@ -12,6 +12,7 @@
             <li><a href="{{ route('home') }}" class="block p-2 hover:bg-gray-700 rounded">Inicio</a></li>
             <li><a href="{{ route('perfil') }}" class="block p-2 hover:bg-gray-700 rounded">Perfil</a></li>
             <li><a href="{{ route('altaMat') }}" class="block p-2 hover:bg-gray-700 rounded">Alta de Materia</a></li>
+            <li><a href="{{ route('registroEv') }}" class="block p-2 hover:bg-gray-700 rounded">Registrar Evidencia</a></li>
         </ul>
     </div>
 </div>
