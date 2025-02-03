@@ -7,27 +7,14 @@
                 <h2 class="text-4xl tracking-tight font-extrabold text-blue-900 dark:text-gray mb-3 pb-3">Materias</h2>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md
+                <a href="{{ route('calendario')}}" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md
                             dark:bg-blue-800 dark:border-blue-900 
                             dark:hover:bg-blue-600 transition-all duration-[1000ms] ease-in-out
                             hover:shadow-xl hover:border-blue-900">
                     <h6 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Matemáticas</h6>
                     <p class="font-normal text-white">Descripción de cada materia</p>
                 </a>
-                <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md
-                            dark:bg-blue-800 dark:border-blue-900 
-                            dark:hover:bg-blue-600 transition-all duration-[1000ms] ease-in-out
-                            hover:shadow-xl hover:border-blue-900">
-                    <h6 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Matemáticas</h6>
-                    <p class="font-normal text-white">Descripción de cada materia</p>
-                </a>
-                <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md
-                            dark:bg-blue-800 dark:border-blue-900 
-                            dark:hover:bg-blue-600 transition-all duration-[1000ms] ease-in-out
-                            hover:shadow-xl hover:border-blue-900">
-                    <h6 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Matemáticas</h6>
-                    <p class="font-normal text-white">Descripción de cada materia</p>
-                </a>        
+                      
             </div>
         </div>
     </section>
