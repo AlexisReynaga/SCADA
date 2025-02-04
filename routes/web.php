@@ -9,7 +9,7 @@ use App\Http\Controllers\AltaMatController;
 use App\Http\Controllers\RegistroEvidenciasController;
 use App\Http\Controllers\BitacoraController;
 use App\Http\Controllers\calendarioController;
-
+use App\Http\Controllers\sesionController;
 //ruta de todas las paginas web
 Route::get('/', [loginController::class, 'login']);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -19,3 +19,4 @@ Route::get('/altaMat', [AltaMatController::class, 'altaMat'])->name('altaMat');
 Route::get('/registroEvidencias', [RegistroEvidenciasController::class, 'registroEvidencias'])->name('registroEv');
 Route::get('/bitacora', [BitacoraController::class, 'bitacora'])->name('bitacora');
 Route::get('/calendario', [calendarioController::class, 'calendario'])->name('calendario');
+Route::get('/sesion', [sesionController::class, 'sesion'])->name('sesion');

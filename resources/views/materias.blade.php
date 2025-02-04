@@ -12,9 +12,8 @@
                             dark:hover:bg-blue-600 transition-all duration-[1000ms] ease-in-out
                             hover:shadow-xl hover:border-blue-900">
                     <h6 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Matemáticas</h6>
-                    <p class="font-normal text-white">Descripción de cada materia</p>
-                </a>
-                      
+                    <p class="font-normal text-white">Grupo de la materia</p>
+                </a>                  
             </div>
         </div>
     </section>

@@ -7,9 +7,32 @@
 
         <!-- Botón para cambiar semestre -->
         <div class="text-center mb-4">
-            <button id="toggleSemester" class="px-4 py-2 bg-blue-900 text-white rounded-lg shadow hover:bg-blue-600">
+            <button id="toggleSemester" class="px-4 py-2 font-bold bg-blue-900 text-white rounded-lg shadow hover:bg-blue-600 transition-all duration-[500ms] ease-in-out">
                 Cambiar Semestre
             </button>
+        </div>
+
+        <!-- Filtros -->
+        <div class="text-center mb-4 w-1/2 bg-gray-200 p-6 rounded-lg shadow-md border border-gray-300 mx-auto">
+            <label for="filterMonth" class="mr-2 font-bold text-gray-900">Filtrar por mes:</label>
+            <select id="filterMonth" class="px-4 py-2 border rounded-lg ">
+                <option value="">Todos los meses</option>
+                <option value="0">Enero</option>
+                <option value="1">Febrero</option>
+                <option value="2">Marzo</option>
+                <option value="3">Abril</option>
+                <option value="4">Mayo</option>
+                <option value="5">Junio</option>
+                <option value="6">Julio</option>
+                <option value="7">Agosto</option>
+                <option value="8">Septiembre</option>
+                <option value="9">Octubre</option>
+                <option value="10">Noviembre</option>
+                <option value="11">Diciembre</option>
+            </select>
+
+            <button id="pastDays" class="px-4 py-2  bg-blue-900  font-bold text-white rounded-lg shadow hover:bg-blue-600 transition-all duration-[500ms] ease-in-out">Días Pasados</button>
+            <button id="futureDays" class="px-4 py-2 bg-blue-900 font-bold text-white rounded-lg shadow hover:bg-blue-600 transition-all duration-[500ms] ease-in-out">Días Futuros</button>
         </div>
 
         <!-- Contenedor del calendario -->
@@ -22,5 +45,8 @@
             <div class="text-center font-bold text-gray-900">Viernes</div>
         </div>
         <script src="{{ asset('js/calendario.js') }}"></script>
+        <div 
+        id="calendar" 
+        data-url="{{ route('sesion') }}">
     </section>
 </x-esqueleto>
