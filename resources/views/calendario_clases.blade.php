@@ -2,19 +2,19 @@
     <x-nav-bar></x-nav-bar>
     <section class="py-8 px-4 mx-auto max-w-screen-xl">
         <div class="text-center mb-6">
-            <h2 class="text-3xl font-bold text-blue-900">Calendario de Clases</h2>
+            <h2 class="text-3xl font-bold text-blue-800">Calendario de Clases</h2>
         </div>
 
         <!-- Botón para cambiar semestre -->
         <div class="text-center mb-4">
-            <button id="toggleSemester" class="px-4 py-2 font-bold bg-blue-900 text-white rounded-lg shadow hover:bg-blue-600 transition-all duration-[500ms] ease-in-out">
+            <button id="toggleSemester" class="px-4 py-2 font-bold bg-blue-800 text-white rounded-lg shadow hover:bg-blue-500 transition-all duration-[1000ms] ease-in-out">
                 Cambiar Semestre
             </button>
         </div>
 
         <!-- Filtros -->
         <div class="text-center mb-4 w-1/2 bg-gray-200 p-6 rounded-lg shadow-md border border-gray-300 mx-auto">
-            <label for="filterMonth" class="mr-2 font-bold text-gray-900">Filtrar por mes:</label>
+            <label for="filterMonth" class="mr-2 font-bold text-blue-800">Filtrar clases</label>
             <select id="filterMonth" class="px-4 py-2 border rounded-lg ">
                 <option value="">Todos los meses</option>
                 <option value="0">Enero</option>
@@ -31,8 +31,8 @@
                 <option value="11">Diciembre</option>
             </select>
 
-            <button id="pastDays" class="px-4 py-2  bg-blue-900  font-bold text-white rounded-lg shadow hover:bg-blue-600 transition-all duration-[500ms] ease-in-out">Días Pasados</button>
-            <button id="futureDays" class="px-4 py-2 bg-blue-900 font-bold text-white rounded-lg shadow hover:bg-blue-600 transition-all duration-[500ms] ease-in-out">Días Futuros</button>
+            <button id="pastDays" class="px-4 py-2  bg-blue-800  font-bold text-white rounded-lg shadow hover:bg-blue-500 transition-all duration-[500ms] ease-in-out">Días Pasados</button>
+            <button id="futureDays" class="px-4 py-2 bg-blue-800 font-bold text-white rounded-lg shadow hover:bg-blue-500 transition-all duration-[500ms] ease-in-out">Días Futuros</button>
         </div>
 
         <!-- Contenedor del calendario -->

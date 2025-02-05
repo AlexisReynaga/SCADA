@@ -54,7 +54,7 @@ function generarCalendario() {
                 diaElemento.innerHTML = `
                     <p class="text-gray-700 font-bold">${diaTexto}</p>
                     <a href="${sesionUrl}">
-                        <button class="w-full p-2 mt-2 bg-blue-900 text-white rounded-lg hover:bg-blue-700 transition-all duration-[300ms] ease-in-out">
+                        <button class="w-full p-2 mt-2 bg-blue-800 text-white rounded-lg hover:bg-blue-500 transition-all duration-[300ms] ease-in-out">
                             Sesión
                         </button>
                     </a>
