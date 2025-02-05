@@ -8,7 +8,6 @@
         </div>
         <div class="flex items-center gap-4">
             <x-perfil-button>
-                Jaime Federico Meade Collins
             </x-perfil-button>
             <x-fecha></x-fecha>
         </div>
