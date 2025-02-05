@@ -11,4 +11,7 @@
             <x-button>
                 Guardar
             </x-button>
+        </div>
+    </div>
+</main>
 </x-esqueleto>
