@@ -13,6 +13,14 @@
             <li><a href="{{ route('perfil') }}" class="block p-2 hover:bg-blue-500 rounded">Perfil</a></li>
             <li><a href="{{ route('bitacora')}}" class="block p-2 hover:bg-blue-500 rounded">Bitacora</a></li>
             <li><a href="{{ route('materias')}}" class="block p-2 hover:bg-blue-500 rounded">Materias</a></li>
+            <li>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="w-full text-left block p-2 hover:bg-red-500 rounded">
+                        Cerrar Sesión
+                    </button>
+                </form>
+            </li>
         </ul>
     </div>
 </div>

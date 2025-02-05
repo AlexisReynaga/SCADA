@@ -12,9 +12,16 @@
         <body class="bg-blue-100 flex items-center justify-center min-h-screen">
             <div class="bg-white p-8 rounded-lg shadow-lg w-96">
                 <h2 class="text-2xl font-bold text-center text-blue-600">Iniciar Sesión</h2>
-                <!-- se debe agregar un metodo post para que se envie tanto el correo como la contraseña 
-                a la base de datos -->
-                <form action="/" class="mt-6">
+
+                <!-- Mensajes de error -->
+                @if (session('error'))
+                    <div class="bg-red-100 text-red-700 p-3 rounded-lg text-center my-4">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+                <!-- Formulario corregido -->
+                <form action="{{ route('login.process') }}" method="POST" class="mt-6">
                     @csrf
 
                     <!-- Correo -->
@@ -31,11 +38,11 @@
                             class="w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
                     </div>
 
-                    <!-- Botón de Envío -->
-                    <a href="{{ url('/home') }}" 
-                    class="w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition duration-300 text-center inline-block">
+                    <!-- Botón de Envío corregido -->
+                    <button type="submit" 
+                        class="w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition duration-300">
                         Iniciar Sesión
-                    </a>
+                    </button>
                 </form>
 
                 <!-- Links -->

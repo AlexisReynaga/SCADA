@@ -11,14 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) { //parametro 'users' es el nombre de la tabla Despues funcion callback con el objeto Blueprint
-            $table->id(); 
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable(); //campo de tipo fecha y significa que puede ser null
+        Schema::create('users', function (Blueprint $table) {
+            $table->id(); // Clave única autoincremental
+            $table->string('nombres');
+            $table->string('apellidos');
+            $table->string('correo')->unique();
             $table->string('password');
-            $table->rememberToken();//almacena un token para recordar la sesion
-            $table->timestamps();//crea dos campos created_at y updated_at para fecha de creacion y actualizacion
+            $table->json('materias_impartidas')->nullable(); // Almacena materias en formato JSON
+            $table->string('institucion')->nullable();
+            $table->string('numero_celular')->nullable();
+            $table->enum('rol', ['admin', 'docente', 'becario', 'jefe_area', 'presidente_academia']);
+            $table->timestamps();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
