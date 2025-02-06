@@ -15,9 +15,6 @@
             <x-perfil-button class="hidden sm:block">
                 Jaime Federico Meade Collins
             </x-perfil-button>
-            <x-perfil-button class="sm:hidden">
-                <img src="{{ asset('images/user-icon.png') }}" alt="Perfil" class="h-8 w-8 rounded-full">
-            </x-perfil-button>
             <x-fecha></x-fecha>
         </div>
     </div>
