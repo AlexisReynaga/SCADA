@@ -1,6 +1,7 @@
 <x-esqueleto>
     <x-nav-bar></x-nav-bar>
-    <!-- Contenedor del Formulario-->
+    <!-- Contenedor del Formulario, preguntar si se debe generar un pdf con las incidencias
+    capturadas por el docente-->
     <div class="lg:w-full p-4 bg-white shadow-md rounded-lg text-center transition-all duration-2000">
         <div class="w-10/12 py-4 px-2 mx-auto max-w-screen-xl lg:py-3 lg:px-2 
             border-4 border-gray-300 rounded-lg bg-gray-200 mt-0 pt-0">
