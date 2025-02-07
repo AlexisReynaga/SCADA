@@ -1,15 +1,14 @@
 <x-esqueleto>
     <x-nav-bar></x-nav-bar>
     <section class="py-8 px-4 mx-auto max-w-screen-xl">
-        <div class="text-center mb-6">
-            <h2 class="text-3xl font-bold text-blue-800">Calendario de Clases</h2>
-        </div>
-
         <!-- Botón para cambiar semestre -->
         <div class="text-center mb-4">
-            <button id="toggleSemester" class="px-4 py-2 font-bold bg-blue-800 text-white rounded-lg shadow hover:bg-blue-500 transition-all duration-[1000ms] ease-in-out">
+            <button id="toggleSemester" class="px-4 py-1.5 font-bold bg-blue-800 text-white rounded-lg shadow hover:bg-blue-500 transition-all duration-[500ms] ease-in-out">
                 Cambiar Semestre
             </button>
+            <a href="{{route('carpeta')}}" class="px-4 py-2 font-bold bg-blue-800 text-white rounded-lg shadow hover:bg-blue-500 transition-all duration-[500ms] ease-in-out">
+                Archivos de la sesión
+            </a>
         </div>
 
         <!-- Filtros -->
@@ -48,5 +47,6 @@
         <div 
         id="calendar" 
         data-url="{{ route('sesion') }}">
+        </div>
     </section>
 </x-esqueleto>

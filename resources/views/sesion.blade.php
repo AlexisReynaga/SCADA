@@ -4,7 +4,6 @@
     <section class="bg-white pt-4">
         <div class="py-4 px-2 mx-auto max-w-screen-xl lg:py-5 lg:px-3 
             border-4 border-gray-300 rounded-lg bg-gray-200 mt-0 pt-0">
-            <h2 class="text-3xl tracking-tight font-extrabold text-blue-800 mb-1 pb-0 text-center">Sesión</h2>
             <!-- Contenedor principal: Flex para organizar en fila o columna -->
             <div class="flex flex-col lg:flex-row gap-6">
                 <!-- Contenedor de Programas de Estudio (lado izquierdo en pantallas grandes) -->
@@ -95,8 +94,7 @@
                                 <p class="mt-1 text-sm font-bold dark:text-blue-500" id="file_input_help">
                                     JPG, PNG, CSV, PDF, DOCX (MAX. 20mb).
                                 </p>
-                            </div>
-                             
+                            </div>           
                         </div>
                         <div class="flex flex-row justify-around">
                             <button type="submit" 
@@ -104,16 +102,15 @@
                                 bg-blue-700 hover:bg-blue-500 transition-all duration-1000 ease-in-out">
                                 Guardar
                                 </button>
-                            <button
+                            <a href="{{ route('incidencia') }}"
                                 class="text-white font-bold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center 
-                                bg-blue-700 hover:bg-blue-500 transition-all duration-1000 ease-in-out">
-                                Incidencia
-                            </button>
+                                bg-blue-700 hover:bg-blue-500 transition-all duration-500 ease-in-out">
+                                Ocurrio una incidencia
+                            </a>
                         </div>
                         
                     </form>
                 </div>
-
             </div>
         </div>
     </section>
