@@ -8,9 +8,6 @@
         <h1 class="text-center text-xl font-bold">REGISTRO DIARIO</h1>
         <div class="mt-4 h-80 border rounded bg-gray-100"></div>
         <div class="flex justify-end mt-4">
-            <x-button>
-                Guardar
-            </x-button>
         </div>
     </div>
 </main>
