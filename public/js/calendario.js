@@ -44,9 +44,9 @@ function generarCalendario() {
                 // Determinar color de fondo según la fecha
                 let bgColor = "bg-white"; // Predeterminado (futuro)
                 if (fecha < hoy) {
-                    bgColor = "bg-gray-400"; // Pasado
+                    bgColor = "bg-red-400"; // Pasado
                 } else if (fecha.getTime() === hoy.getTime()) {
-                    bgColor = "bg-blue-400"; // Día actual
+                    bgColor = "bg-green-400"; // Día actual
                 }
                 
                 let diaElemento = document.createElement("div");
