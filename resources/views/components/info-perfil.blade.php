@@ -44,11 +44,6 @@
                 {{ ucfirst($user->rol) }} <!-- Convierte la primera letra en mayúscula -->
             </p>
         </div>
-        <div class="mb-6">
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Contraseña</label>
-            <p class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
-                •••••••••
-            </p>
-        </div> 
+        
     </div>
 </div>
