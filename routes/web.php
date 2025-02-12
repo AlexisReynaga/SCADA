@@ -13,14 +13,23 @@ use App\Http\Controllers\sesionController;
 use App\Http\Controllers\carpetaController;
 use App\Http\Controllers\incidenciaController;
 //ruta de todas las paginas web
-Route::get('/', [loginController::class, 'login']);
+Route::get('/', [loginController::class, 'login'])->name('login');
+Route::post('/login', [loginController::class, 'authenticate'])->name('login.process');
+Route::post('/logout', [loginController::class, 'logout'])->name('logout');
+
+Route::middleware('auth')->group(function () {
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/perfil', [PerfilController::class, 'perfil'])->name('perfil');
 Route::get('/materias', [materiaController::class, 'materias'])->name('materias');
 Route::get('/altaMat', [AltaMatController::class, 'altaMat'])->name('altaMat');
 Route::get('/registroEvidencias', [RegistroEvidenciasController::class, 'registroEvidencias'])->name('registroEv');
-Route::get('/bitacora', [BitacoraController::class, 'bitacora'])->name('bitacora');
 Route::get('/calendario', [calendarioController::class, 'calendario'])->name('calendario');
 Route::get('/sesion', [sesionController::class, 'sesion'])->name('sesion');
 Route::get('/carpeta', [carpetaController::class, 'carpeta'])->name('carpeta');
 Route::get('/incidencia', [incidenciaController::class, 'incidencia'])->name('incidencia');
+Route::get('/bitacora', function () {
+    return view('bitacora');
+})->middleware('checkRole:admin')->name('bitacora');
+
+
+});
