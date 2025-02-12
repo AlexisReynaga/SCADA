@@ -1,5 +1,5 @@
 <!-- Botón para abrir/cerrar -->
-<button id="toggleSidebar" class="fixed top-5 left-3 bg-blue-800 text-white p-3 rounded z-50 transition-all">☰</button>
+<button id="toggleSidebar" class="fixed top-2 left-0 bg-blue-800 text-white p-3 rounded z-50 transition-all">☰</button>
 
 <!-- Overlay -->
 <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40"></div>
