@@ -9,11 +9,8 @@
         <div class="flex-1 text-center">
             <h1 class="text-sm md:text-lg font-bold whitespace-nowrap">Universidad Autónoma de San Luis Potosí</h1>
         </div>
-
-        <!-- Perfil y Fecha -->
-        <div class="flex items-center gap-2 md:gap-4 pr-3 md:pr-6">
-            <x-perfil-button class="hidden sm:block">
-                Jaime Federico Meade Collins
+        <div class="flex items-center gap-4">
+            <x-perfil-button>
             </x-perfil-button>
             <x-fecha></x-fecha>
         </div>
