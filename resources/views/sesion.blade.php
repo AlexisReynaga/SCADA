@@ -9,6 +9,30 @@
                 <!-- Contenedor de Programas de Estudio (lado izquierdo en pantallas grandes) -->
                 <div class="lg:w-1/3 p-4 bg-white shadow-md rounded-lg text-center transition-all duration-2000">
                     <h2 class="text-2xl tracking-tight font-extrabold text-blue-800 mb-3 pb-3">Programas de estudio</h2>
+                        <!-- Lista dinámica de temas y subtemas -->
+                <div id="temas-lista" class="bg-gray-200 p-6 rounded-lg shadow-md border border-gray-300">
+                    <ul id="temas-ul" class="mt-3 list-disc pl-5 text-left">
+                        <!-- Ejemplo de tema y subtemas, falta probar cargando temas reales
+                        pero ya tiene el funcionamiento de seleccionar y deseleccionar ambos
+                    casos -->
+                        <li data-tema="Programación - Introducción 1">
+                            <span class="font-semibold cursor-pointer bg-blue-700 shadow-md rounded-lg text-center p-1 text-white">Programación - Introducción 1</span>
+                            <ul class="ml-4 list-circle">
+                                <li class="cursor-pointer p-1 hover:bg-blue-300 rounded-lg" data-subtema="Variables">Variables</li>
+                                <li class="cursor-pointer p-1 hover:bg-blue-300 rounded-lg" data-subtema="Ciclos">Ciclos</li>
+                                <li class="cursor-pointer p-1 hover:bg-blue-300 rounded-lg" data-subtema="Condicionales">Condicionales</li>
+                            </ul>
+                        </li>
+                        <li data-tema="Estructuras">
+                            <span class="font-semibold cursor-pointer bg-blue-700 shadow-md rounded-lg text-center p-1 text-white">Estructuras</span>
+                            <ul class="ml-4 list-circle">
+                                <li class="cursor-pointer p-1 hover:bg-blue-300 rounded-lg" data-subtema="Prueba 1">Prueba 1</li>
+                                <li class="cursor-pointer p-1 hover:bg-blue-300 rounded-lg" data-subtema="Prueba 2">Prueba 2</li>
+                                <li class="cursor-pointer p-1 hover:bg-blue-300 rounded-lg" data-subtema="Prueba 3">Prueba 3</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
                 </div>
                 <!-- Contenedor del Formulario (lado derecho en pantallas grandes) -->
                 <div class="lg:w-2/3 p-4 bg-white shadow-md rounded-lg text-center transition-all duration-2000">
@@ -108,10 +132,10 @@
                                 Ocurrio una incidencia
                             </a>
                         </div>
-                        
                     </form>
                 </div>
             </div>
         </div>
     </section>
+    <script src="{{ asset('js/carga_temas.js') }}"></script>
 </x-esqueleto>
