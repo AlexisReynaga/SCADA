@@ -38,5 +38,17 @@ class UserSeeder extends Seeder
                 'rol' => 'admin',
             ]
         );
+        User::updateOrCreate(
+            ['correo' => 'luisf@gmail.com'], // Evita duplicados basándose en el correo
+            [
+                'nombres' => 'Luis Felipe',
+                'apellidos' => 'Rodríguez',
+                'password' => Hash::make('abcdef'),
+                'materias_impartidas' => json_encode(['']),
+                'institucion' => 'UASLP',
+                'numero_celular' => '1234567890',
+                'rol' => 'becario',
+            ]
+        );
     }
 }
