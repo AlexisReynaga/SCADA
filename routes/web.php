@@ -8,6 +8,19 @@ use App\Http\Controllers\materiaController;
 use App\Http\Controllers\AltaMatController;
 use App\Http\Controllers\RegistroEvidenciasController;
 use App\Http\Controllers\BitacoraController;
+<<<<<<< Updated upstream
+=======
+use App\Http\Controllers\calendarioController;
+use App\Http\Controllers\sesionController;
+use App\Http\Controllers\carpetaController;
+use App\Http\Controllers\incidenciaController;
+use App\Http\Controllers\ProgramaDeEstudioController;
+
+//ruta de todas las paginas web
+Route::get('/', [loginController::class, 'login'])->name('login');
+Route::post('/login', [loginController::class, 'authenticate'])->name('login.process');
+Route::post('/logout', [loginController::class, 'logout'])->name('logout');
+>>>>>>> Stashed changes
 
 //ruta de todas las paginas web
 Route::get('/', [loginController::class, 'login']);
@@ -16,4 +29,18 @@ Route::get('/perfil', [PerfilController::class, 'perfil'])->name('perfil');
 Route::get('/materias', [materiaController::class, 'materias'])->name('materias');
 Route::get('/altaMat', [AltaMatController::class, 'altaMat'])->name('altaMat');
 Route::get('/registroEvidencias', [RegistroEvidenciasController::class, 'registroEvidencias'])->name('registroEv');
+<<<<<<< Updated upstream
 Route::get('/bitacora', [BitacoraController::class, 'bitacora'])->name('bitacora');
+=======
+Route::get('/calendario', [calendarioController::class, 'calendario'])->name('calendario');
+Route::get('/sesion', [sesionController::class, 'sesion'])->name('sesion');
+Route::get('/carpeta', [carpetaController::class, 'carpeta'])->name('carpeta');
+Route::get('/incidencia', [incidenciaController::class, 'incidencia'])->name('incidencia');
+Route::get('/programaDeEstudio', [ProgramaDeEstudioController::class, 'programa'])->name('programa');
+Route::get('/bitacora', function () {
+    return view('bitacora');
+})->middleware('checkRole:admin')->name('bitacora');
+
+
+});
+>>>>>>> Stashed changes
