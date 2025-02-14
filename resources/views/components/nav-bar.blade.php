@@ -1,5 +1,5 @@
 <!-- Botón para abrir/cerrar -->
-<button id="toggleSidebar" class="fixed top-5 left-3 bg-blue-800 text-white p-3 rounded z-50 transition-all">☰</button>
+<button id="toggleSidebar" class="fixed top-2 left-0 bg-blue-800 text-white p-3 rounded z-50 transition-all">☰</button>
 
 <!-- Overlay -->
 <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40"></div>
@@ -11,8 +11,19 @@
         <ul class="mt-4 space-y-2">
             <li><a href="{{ route('home') }}" class="block p-2 hover:bg-blue-500 rounded">Inicio</a></li>
             <li><a href="{{ route('perfil') }}" class="block p-2 hover:bg-blue-500 rounded">Perfil</a></li>
-            <li><a href="{{ route('bitacora')}}" class="block p-2 hover:bg-blue-500 rounded">Bitacora</a></li>
+            @if(auth()->user()->rol === 'admin')
+                <li><a href="{{ route('bitacora') }}" class="block p-2 hover:bg-blue-500 rounded">Bitácora</a></li>
+            @endif
+
             <li><a href="{{ route('materias')}}" class="block p-2 hover:bg-blue-500 rounded">Materias</a></li>
+            <li>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="w-full text-left block p-2 hover:bg-red-500 rounded">
+                        Cerrar Sesión
+                    </button>
+                </form>
+            </li>
         </ul>
     </div>
 </div>
