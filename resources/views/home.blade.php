@@ -1,8 +1,5 @@
 <x-esqueleto>
-<x-nav-bar></x-nav-bar>
-<main class="p-4">
-    <div class="bg-white p-6 rounded-lg shadow-lg">
-        
+<x-nav-bar></x-nav-bar>   
 <section class="lg:w-full p-4 bg-white shadow-md rounded-lg text-center transition-all duration-2000">
     <div class="w-10/12 py-4 px-2 mx-auto max-w-screen-xl lg:py-3 lg:px-2 
         border-4 border-gray-300 rounded-lg bg-gray-200 mt-0 pt-0 flex justify-center">

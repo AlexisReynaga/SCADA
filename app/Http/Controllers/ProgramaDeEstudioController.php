@@ -8,6 +8,6 @@ class ProgramaDeEstudioController extends Controller
 {
     public function programa()
     {
-        return view('programaDeEstudio');
+        return view('programa');
     }
 }
