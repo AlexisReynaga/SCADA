@@ -32,5 +32,8 @@ Route::get('/calendario', [calendarioController::class, 'calendario'])->name('ca
 Route::get('/sesion', [sesionController::class, 'sesion'])->name('sesion');
 Route::get('/carpeta', [carpetaController::class, 'carpeta'])->name('carpeta');
 Route::get('/incidencia', [incidenciaController::class, 'incidencia'])->name('incidencia');
-Route::get('/programa', [ProgramaDeEstudioController::class, 'programa'])->name('programa');
+
+Route::get('/programa', [ProgramaDeEstudioController::class, 'programa'])
+        ->middleware('checkRole:admin')
+        ->name('programa');
 });
