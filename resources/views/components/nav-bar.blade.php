@@ -11,10 +11,12 @@
         <ul class="mt-4 space-y-2">
             <li><a href="{{ route('home') }}" class="block p-2 hover:bg-blue-500 rounded">Inicio</a></li>
             <li><a href="{{ route('perfil') }}" class="block p-2 hover:bg-blue-500 rounded">Perfil</a></li>
+            <!--unicamente al rol de admin le aparecera la vista de la bitacora y programas de estudio (cambiarlo
+            por el de becario y coordinadores de area-->
             @if(auth()->user()->rol === 'admin')
                 <li><a href="{{ route('bitacora') }}" class="block p-2 hover:bg-blue-500 rounded">Bitácora</a></li>
+                <li><a href="{{ route('programa')}}" class="block p-2 hover:bg-blue-500 rounded">Programas de estudio</a></li>
             @endif
-
             <li><a href="{{ route('materias')}}" class="block p-2 hover:bg-blue-500 rounded">Materias</a></li>
             <li>
                 <form action="{{ route('logout') }}" method="POST">
