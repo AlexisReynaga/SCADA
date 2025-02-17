@@ -2,7 +2,7 @@
     <div class="bg-blue-800 flex flex-wrap items-center justify-between p-3 md:p-5">
         <!-- Logo -->
         <div class="flex items-center gap-4 pl-3 md:pl-6"> 
-            <img src="{{ asset('images/UASLP.png') }}" alt="UASLP" class="h-10 md:h-12"> 
+            <img src="{{ asset('images/logoUASLP.png') }}" alt="UASLP" class="h-10 md:h-10"> 
         </div>
 
         <!-- Nombre de la Universidad -->

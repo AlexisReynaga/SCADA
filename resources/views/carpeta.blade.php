@@ -28,6 +28,7 @@
         </div>
       </div>
     </section>
+    
     <script src="{{ asset('js/carpetas.js') }}"></script>
 </x-esqueleto>
   
