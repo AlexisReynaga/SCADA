@@ -1,6 +1,7 @@
 <x-esqueleto>
 <x-nav-bar></x-nav-bar>   
 <section class="lg:w-full p-4 bg-white shadow-md rounded-lg text-center transition-all duration-2000">
+    <x-rutas/>
     <div class="w-10/12 py-4 px-2 mx-auto max-w-screen-xl lg:py-3 lg:px-2 
         border-4 border-gray-300 rounded-lg bg-gray-200 mt-0 pt-0 flex justify-center">
         <div class="w-7/12 p-2 mt-2 bg-white text-white rounded-lg transition-all duration-[300ms] ease-in-out">

@@ -1,5 +1,6 @@
 <x-esqueleto>
     <x-nav-bar></x-nav-bar>
+    <x-rutas/>
     <section class="py-8 px-4 mx-auto max-w-screen-xl">
         <!-- Botón para cambiar semestre -->
         <div class="text-center mb-4">

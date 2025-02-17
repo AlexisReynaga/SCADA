@@ -21,14 +21,16 @@ Route::post('/logout', [loginController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/perfil', [PerfilController::class, 'perfil'])->name('perfil');
-Route::get('/materias', [materiaController::class, 'materias'])->name('materias');
+//agregue la ruta para que se muestre asi: home/perfil en vez de perfil
+Route::get('/home/perfil', [PerfilController::class, 'perfil'])->name('home.perfil');
+    Route::get('/materias', [materiaController::class, 'materias'])->name('materias');
+    Route::get('/calendario', [calendarioController::class, 'calendario'])->name('calendario');
 Route::get('/altaMat', [AltaMatController::class, 'altaMat'])->name('altaMat');
 Route::get('/registroEvidencias', [RegistroEvidenciasController::class, 'registroEvidencias'])->name('registroEv');
 Route::get('/bitacora', [BitacoraController::class, 'bitacora'])
         ->middleware('checkRole:admin')
         ->name('bitacora');
-Route::get('/calendario', [calendarioController::class, 'calendario'])->name('calendario');
+//Route::get('/calendario', [calendarioController::class, 'calendario'])->name('calendario');
 Route::get('/sesion', [sesionController::class, 'sesion'])->name('sesion');
 Route::get('/carpeta', [carpetaController::class, 'carpeta'])->name('carpeta');
 Route::get('/incidencia', [incidenciaController::class, 'incidencia'])->name('incidencia');

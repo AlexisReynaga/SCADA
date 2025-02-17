@@ -1,5 +1,6 @@
 <x-esqueleto>
     <x-nav-bar></x-nav-bar>
+    <x-rutas/>
     <!-- Contenedor del Formulario, preguntar si se debe generar un pdf con las incidencias
     capturadas por el docente-->
     <div class="lg:w-full p-4 bg-white shadow-md rounded-lg text-center transition-all duration-2000">

@@ -1,6 +1,7 @@
 <x-esqueleto>
     <x-nav-bar></x-nav-bar>
     <div class="container mx-auto">
+        <x-rutas/>
         <h1 class="text-3xl font-bold mb-6 text-center">Registro de Actividad</h1>
 
         <!-- Botón para abrir el filtro -->

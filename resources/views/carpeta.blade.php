@@ -1,6 +1,7 @@
 <x-esqueleto>
     <x-nav-bar></x-nav-bar>
     <section class="bg-white pt-3 min-h-screen">
+      <x-rutas/>
       <div class="py-0 px-4 mx-auto max-w-screen-xl lg:py-2 lg:px-6">
         <h1 class="text-3xl font-bold mb-3 text-start text-blue-700">Sistema de Archivos</h1>
   

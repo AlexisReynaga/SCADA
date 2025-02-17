@@ -2,6 +2,7 @@
     <x-nav-bar></x-nav-bar>
     
     <section class="bg-white pt-4">
+        <x-rutas/>
         <div class="py-4 px-2 mx-auto max-w-screen-xl lg:py-5 lg:px-3 
             border-4 border-gray-300 rounded-lg bg-gray-200 mt-0 pt-0">
             <!-- Contenedor principal: Flex para organizar en fila o columna -->

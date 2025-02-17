@@ -1,5 +1,6 @@
 <x-esqueleto>
     <x-nav-bar></x-nav-bar>
+    <x-rutas/>
     <section class="bg-white pt-6">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 
     border-4 border-gray-300 rounded-lg bg-gray-200 mt-0 pt-0">

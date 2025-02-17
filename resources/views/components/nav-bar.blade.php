@@ -10,7 +10,7 @@
         <h2 class="text-xl font-semibold">Menú</h2>
         <ul class="mt-4 space-y-2">
             <li><a href="{{ route('home') }}" class="block p-2 hover:bg-blue-500 rounded">Inicio</a></li>
-            <li><a href="{{ route('perfil') }}" class="block p-2 hover:bg-blue-500 rounded">Perfil</a></li>
+            <li><a href="{{ route('home.perfil') }}" class="block p-2 hover:bg-blue-500 rounded">Perfil</a></li>
             <!--unicamente al rol de admin le aparecera la vista de la bitacora y programas de estudio (cambiarlo
             por el de becario y coordinadores de area-->
             @if(auth()->user()->rol === 'admin')
