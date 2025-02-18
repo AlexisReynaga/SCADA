@@ -5,8 +5,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\materiaController;
-use App\Http\Controllers\AltaMatController;
-use App\Http\Controllers\RegistroEvidenciasController;
 use App\Http\Controllers\BitacoraController;
 use App\Http\Controllers\calendarioController;
 use App\Http\Controllers\sesionController;
@@ -23,19 +21,17 @@ Route::middleware('auth')->group(function () {
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 //agregue la ruta para que se muestre asi: home/perfil en vez de perfil
 Route::get('/home/perfil', [PerfilController::class, 'perfil'])->name('home.perfil');
-    Route::get('/materias', [materiaController::class, 'materias'])->name('materias');
-    Route::get('/calendario', [calendarioController::class, 'calendario'])->name('calendario');
-Route::get('/altaMat', [AltaMatController::class, 'altaMat'])->name('altaMat');
-Route::get('/registroEvidencias', [RegistroEvidenciasController::class, 'registroEvidencias'])->name('registroEv');
-Route::get('/bitacora', [BitacoraController::class, 'bitacora'])
+Route::get('/home/materias', [materiaController::class, 'materias'])->name('home.materias');
+Route::get('/home/materias/calendario', [calendarioController::class, 'calendario'])->name('home.materias.calendario');
+//ruta disponible unicamente para los roles de admin, coordinadores, jefe de area
+Route::get('/home/bitacora', [BitacoraController::class, 'bitacora'])
         ->middleware('checkRole:admin')
-        ->name('bitacora');
-//Route::get('/calendario', [calendarioController::class, 'calendario'])->name('calendario');
-Route::get('/sesion', [sesionController::class, 'sesion'])->name('sesion');
-Route::get('/carpeta', [carpetaController::class, 'carpeta'])->name('carpeta');
-Route::get('/incidencia', [incidenciaController::class, 'incidencia'])->name('incidencia');
-
-Route::get('/programa', [ProgramaDeEstudioController::class, 'programa'])
+        ->name('home.bitacora');
+Route::get('/home/materias/calendario/sesion', [sesionController::class, 'sesion'])->name('home.materias.calendario.sesion');
+Route::get('/home/materias/calendario/carpeta', [carpetaController::class, 'carpeta'])->name('home.materias.calendario.carpeta');
+Route::get('/home/materias/calendario/sesion/incidencia', [incidenciaController::class, 'incidencia'])->name('home.materias.calendario.sesion.incidencia');
+//ruta para ver los programas de estudio, solo lo vera el becario
+Route::get('/home/programa', [ProgramaDeEstudioController::class, 'programa'])
         ->middleware('checkRole:admin')
-        ->name('programa');
+        ->name('home.programa');
 });

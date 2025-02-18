@@ -7,7 +7,7 @@
             <button id="toggleSemester" class="px-4 py-1.5 font-bold bg-blue-800 text-white rounded-lg shadow hover:bg-blue-500 transition-all duration-[500ms] ease-in-out">
                 Cambiar Semestre
             </button>
-            <a href="{{ route('carpeta') }}" class="px-4 py-2 font-bold bg-blue-800 text-white rounded-lg shadow hover:bg-blue-500 transition-all duration-[500ms] ease-in-out">
+            <a href="{{ route('home.materias.calendario.carpeta') }}" class="px-4 py-2 font-bold bg-blue-800 text-white rounded-lg shadow hover:bg-blue-500 transition-all duration-[500ms] ease-in-out">
                 Archivos de la sesión
             </a>
         </div>
@@ -43,7 +43,7 @@
         <div
             class="grid grid-cols-5 gap-4 bg-gray-200 p-6 rounded-lg shadow-md border border-gray-300"
             id="calendar"
-            data-url="{{ route('sesion') }}"
+            data-url="{{ route('home.materias.calendario.sesion') }}"
         >
             <!-- Encabezado (Días de la semana) -->
             <div class="text-center font-bold text-gray-900">Lunes</div>

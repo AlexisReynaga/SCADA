@@ -66,7 +66,7 @@
                     
                 </div> 
             </form>
-            <a href="{{ route('sesion')}}"
+            <a href="{{ route('home.materias.calendario.sesion')}}"
                 class="text-white font-bold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center 
                  bg-blue-700 hover:bg-blue-500 transition-all duration-1000 ease-in-out">
                 Regresar
