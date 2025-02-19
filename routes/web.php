@@ -11,7 +11,7 @@ use App\Http\Controllers\sesionController;
 use App\Http\Controllers\carpetaController;
 use App\Http\Controllers\incidenciaController;
 use App\Http\Controllers\ProgramaDeEstudioController;
-
+use App\Http\Controllers\cargaProgramaController;
 //ruta de todas las paginas web
 Route::get('/', [loginController::class, 'login'])->name('login');
 Route::post('/login', [loginController::class, 'authenticate'])->name('login.process');
@@ -27,10 +27,14 @@ Route::get('/home/materias/calendario', [calendarioController::class, 'calendari
 Route::get('/home/bitacora', [BitacoraController::class, 'bitacora'])
         ->middleware('checkRole:admin')
         ->name('home.bitacora');
+
 Route::get('/home/materias/calendario/sesion', [sesionController::class, 'sesion'])->name('home.materias.calendario.sesion');
 Route::get('/home/materias/calendario/carpeta', [carpetaController::class, 'carpeta'])->name('home.materias.calendario.carpeta');
 Route::get('/home/materias/calendario/sesion/incidencia', [incidenciaController::class, 'incidencia'])->name('home.materias.calendario.sesion.incidencia');
 //ruta para ver los programas de estudio, solo lo vera el becario
+Route::get('/home/programa/cargaPrograma', [cargaProgramaController::class, 'cargaP'])
+        ->middleware('checkRole:admin')
+        ->name('home.programa.cargaPrograma');
 Route::get('/home/programa', [ProgramaDeEstudioController::class, 'programa'])
         ->middleware('checkRole:admin')
         ->name('home.programa');

@@ -30,11 +30,11 @@
             </div>
             
             <div class="mt-6 flex justify-end space-x-2">
-                <button type="submit" class="inline-flex items-center py-2.5 px-3 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    <svg class="w-4 h-4 me-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-                    </svg>Agregar programa de estudio
-                </button>
+                <a href="{{ route('home.programa.cargaPrograma') }}"
+                    class="text-white font-bold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center 
+                     bg-blue-700 hover:bg-blue-500 transition-all duration-500 ease-in-out">
+                    Agregar programa de estudio
+                </a>
                 <button type="submit" class="inline-flex items-center py-2.5 px-3 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     <svg class="w-4 h-4 me-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm3 4h4m-4 4h4m-5 4h6" />
@@ -47,7 +47,7 @@
             m-4 ">
             
                 <div class="flex items-center justify-between pb-4">
-                    <a href="{{ route('calendario')}}" >
+                    <a href="{{ route('home.materias.calendario')}}" >
                         <h6 class="mb-2 text-lg font-bold tracking-tight text-gray-700 dark:text-white">1234 - Matemáticas</h6>
                     </a>
                     <button
@@ -129,7 +129,7 @@
             m-4 ">
             
                 <div class="flex items-center justify-between pb-4">
-                    <a href="{{ route('calendario')}}" >
+                    <a href="{{ route('home.materias.calendario')}}" >
                         <h6 class="mb-2 text-lg font-bold tracking-tight text-gray-700 dark:text-white">1234 - Matemáticas</h6>
                     </a>
                     <button
@@ -211,7 +211,7 @@
             m-4 ">
             
                 <div class="flex items-center justify-between pb-4">
-                    <a href="{{ route('calendario')}}" >
+                    <a href="{{ route('home.materias.calendario')}}" >
                         <h6 class="mb-2 text-lg font-bold tracking-tight text-gray-700 dark:text-white">1234 - Matemáticas</h6>
                     </a>
                     <button
