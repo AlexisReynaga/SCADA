@@ -78,6 +78,7 @@ return new class extends Migration {
             $table->timestamps();
             
             $table->foreign('fk_id_grupo')->references('id_grupo')->on('grupos')->onDelete('cascade');
+            $table->foreign('fk_clave_maestro')->references('id')->on('users')->onDelete('cascade');
         });
         
         // Tabla de Carpetas
