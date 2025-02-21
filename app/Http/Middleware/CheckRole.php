@@ -8,12 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class CheckRole
 {
-    public function handle(Request $request, Closure $next, $role)
+        public function handle(Request $request, Closure $next, ...$roles)
     {
-        if (!Auth::check() || Auth::user()->rol !== $role) {
+        if (!Auth::check() || !in_array(Auth::user()->rol, $roles)) {
             abort(403, 'No tienes permiso para acceder a esta página.');
         }
-
         return $next($request);
     }
 }

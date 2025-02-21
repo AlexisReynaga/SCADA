@@ -20,7 +20,7 @@ return new class extends Migration
             $table->json('materias_impartidas')->nullable(); // Almacena materias en formato JSON
             $table->string('institucion')->nullable();
             $table->string('numero_celular')->nullable();
-            $table->enum('rol', ['admin', 'docente', 'becario', 'jefe_area', 'presidente_academia']);
+            $table->enum('rol', ['admin', 'docente', 'becario', 'jefe_area', 'coordinador_ISI', 'coordinador_COMP']);
             $table->timestamps();
         });
 

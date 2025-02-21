@@ -50,5 +50,29 @@ class UserSeeder extends Seeder
                 'rol' => 'becario',
             ]
         );
+        User::updateOrCreate(
+            ['correo' => 'dana@gmail.com'], // Evita duplicados basándose en el correo
+            [
+                'nombres' => 'dana',
+                'apellidos' => 'Rodríguez',
+                'password' => Hash::make('123456'),
+                'materias_impartidas' => json_encode(['']),
+                'institucion' => 'UASLP',
+                'numero_celular' => '1234567890',
+                'rol' => 'coordinador_ISI',
+            ]
+        );
+        User::updateOrCreate(
+            ['correo' => 'fer@gmail.com'], // Evita duplicados basándose en el correo
+            [
+                'nombres' => 'fernando',
+                'apellidos' => 'Ruiz',
+                'password' => Hash::make('123456'),
+                'materias_impartidas' => json_encode(['']),
+                'institucion' => 'UASLP',
+                'numero_celular' => '1234567890',
+                'rol' => 'coordinador_COMP',
+            ]
+        );
     }
 }

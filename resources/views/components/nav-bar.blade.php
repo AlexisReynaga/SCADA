@@ -13,11 +13,18 @@
             <li><a href="{{ route('home.perfil') }}" class="block p-2 hover:bg-blue-500 rounded">Perfil</a></li>
             <!--unicamente al rol de admin le aparecera la vista de la bitacora y programas de estudio (cambiarlo
             por el de becario y coordinadores de area-->
-            @if(auth()->user()->rol === 'admin')
+            @if(in_array(auth()->user()->rol, ['admin', 'coordinador_ISI', 'coordinador_COMP']))
                 <li><a href="{{ route('home.bitacora') }}" class="block p-2 hover:bg-blue-500 rounded">Bitácora</a></li>
+            @endif
+            @if(in_array(auth()->user()->rol, ['admin', 'becario']))
                 <li><a href="{{ route('home.programa')}}" class="block p-2 hover:bg-blue-500 rounded">Programas de estudio</a></li>
             @endif
+            @if(auth()->user()->rol === 'admin')
+                <li><a href="{{ route('home.cargaDocMat')}}" class="block p-2 hover:bg-blue-500 rounded">Captura de Usuarios</a></li>
+            @endif
+            @if(in_array(auth()->user()->rol, ['admin', 'docente']))
             <li><a href="{{ route('home.materias')}}" class="block p-2 hover:bg-blue-500 rounded">Materias</a></li>
+            @endif
             <li>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
