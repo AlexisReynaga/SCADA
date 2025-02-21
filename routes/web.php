@@ -39,3 +39,4 @@ Route::get('/home/programa', [ProgramaDeEstudioController::class, 'programa'])
         ->middleware('checkRole:admin')
         ->name('home.programa');
 });
+Route::post('/home/materias/calendario/sesion', [sesionController::class, 'store'])->name('home.materias.calendario.sesion.store');

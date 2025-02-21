@@ -37,7 +37,8 @@
                 </div>
                 <!-- Contenedor del Formulario (lado derecho en pantallas grandes) -->
                 <div class="lg:w-2/3 p-4 bg-white shadow-md rounded-lg text-center transition-all duration-2000">
-                    <form>
+                    <form method="POST" action="{{ route('home.materias.calendario.sesion.store') }}">
+                        @csrf
                         <div class="grid gap-6 mb-6">
                             <div>
                                 <label for="titulo" class="block mb-2 font-bold text-blue-700 text-left text-base">
@@ -46,6 +47,7 @@
                                 <input 
                                     type="text" 
                                     id="titulo" 
+                                    name="titulo" 
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 
                                            dark:bg-gray-300 dark:border-gray-600 dark:placeholder-gray-500 dark:text-black 
                                            focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" 
@@ -57,6 +59,7 @@
                                 <label for="tema" class="block mb-2 font-bold text-blue-700 text-left text-base">Tema</label>
                                 <input 
                                     type="text" id="tema" 
+                                    name="tema" 
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 
                                     dark:bg-gray-300 dark:border-gray-600 dark:placeholder-gray-500 dark:text-black 
                                     focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
@@ -68,6 +71,7 @@
                                 <label for="subtema" class="block mb-2 font-bold text-blue-700 text-left text-base">Subtema</label>
                                 <input 
                                     type="text" id="subtema" 
+                                    name="subtema" 
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 
                                     dark:bg-gray-300 dark:border-gray-600 dark:placeholder-gray-500 dark:text-black 
                                     focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
@@ -79,6 +83,7 @@
                                 <label for="actividad" class="block mb-2 font-bold text-blue-700 text-left text-base">Actividades</label>
                                 <textarea 
                                     id="actividad"
+                                    name="actividad"
                                     rows="5" 
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5
                                     dark:bg-gray-300 dark:border-gray-600 dark:placeholder-gray-500 dark:text-black 
@@ -87,13 +92,13 @@
                                     required
                                 ></textarea>
                             </div>
-                            <!-- Nuevo campo para enlaces -->
                             <div>
                                 <label for="links" class="block mb-2 font-bold text-blue-700 text-left text-base">
                                     Enlaces de videos o páginas web
                                 </label>
                                 <input 
                                     type="url" id="links" 
+                                    name="links" 
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 
                                         dark:bg-gray-300 dark:border-gray-600 dark:placeholder-gray-500 dark:text-black 
                                         focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
@@ -104,7 +109,6 @@
                                 <label class="block mb-2 font-bold text-blue-700 text-left text-base" for="file_input">
                                     Subir archivos
                                 </label>
-                                
                                 <input 
                                     class="block w-full text-sm text-gray-900 border border-blue-700 rounded-lg cursor-pointer 
                                            bg-gray-50 dark:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 
@@ -113,9 +117,9 @@
                                            file:bg-blue-700 file:text-white hover:file:bg-blue-500 transition-all duration-1000 ease-in-out" 
                                     aria-describedby="file_input_help" 
                                     id="file_input" 
+                                    name="archivo"
                                     type="file"
                                 >
-                                
                                 <p class="mt-1 text-sm font-bold dark:text-blue-500" id="file_input_help">
                                     JPG, PNG, CSV, PDF, DOCX (MAX. 20mb).
                                 </p>
@@ -126,7 +130,7 @@
                                 class="text-white font-bold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center 
                                 bg-blue-700 hover:bg-blue-500 transition-all duration-1000 ease-in-out">
                                 Guardar
-                                </button>
+                            </button>
                             <a href="{{ route('home.materias.calendario.sesion.incidencia') }}"
                                 class="text-white font-bold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center 
                                 bg-blue-700 hover:bg-blue-500 transition-all duration-500 ease-in-out">
