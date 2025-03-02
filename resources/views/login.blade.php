@@ -9,7 +9,7 @@
 <div class="flex flex-col min-h-screen min-w-full">
     <x-header></x-header>
     <div class="flex justify-center min-w-full my-20">
-        <body class="bg-blue-100 flex items-center justify-center min-h-screen">
+        <body class="bg-white flex items-center justify-center min-h-screen">
             <div class="bg-white p-8 rounded-lg shadow-lg w-96">
                 <h2 class="text-2xl font-bold text-center text-blue-600">Iniciar Sesión</h2>
 
