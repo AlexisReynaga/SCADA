@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
                 'materias_impartidas' => json_encode([]),
                 'institucion'       => 'UASLP',
                 'numero_celular'    => '', // Puedes actualizarlo cuando tengas el dato
-                'rol'               => 'docente',
+                'rol'               => 'admin',
             ]
         );
 

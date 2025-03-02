@@ -70,3 +70,13 @@ Route::get('/home/programa', [ProgramaDeEstudioController::class, 'programa'])
 
 Route::post('/home/materias/calendario/sesion', [sesionController::class, 'store'])
         ->name('home.materias.calendario.sesion.store');
+
+// Ruta para mostrar la vista de usuarios (y el formulario de asignación si se selecciona un docente)
+Route::get('/home/cargaDocMat', [cargaDocMatController::class, 'cargaDocMat'])
+      ->middleware('checkRole:admin')
+      ->name('home.cargaDocMat');
+
+// Ruta para procesar el formulario de asignación de grupo
+Route::post('/home/asignar-grupo', [cargaDocMatController::class, 'asignarGrupo'])
+      ->middleware('checkRole:admin')
+      ->name('home.asignarGrupo.store');
