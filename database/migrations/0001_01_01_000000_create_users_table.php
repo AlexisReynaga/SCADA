@@ -12,18 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id(); // Clave única autoincremental
+            // Usamos el RPE como clave primaria
+            $table->string('rpe')->primary();
             $table->string('nombres');
             $table->string('apellidos');
             $table->string('correo')->unique();
-            $table->string('password');
             $table->json('materias_impartidas')->nullable(); // Almacena materias en formato JSON
             $table->string('institucion')->nullable();
             $table->string('numero_celular')->nullable();
             $table->enum('rol', ['admin', 'docente', 'becario', 'jefe_area', 'coordinador_ISI', 'coordinador_COMP']);
             $table->timestamps();
         });
-
+        
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');

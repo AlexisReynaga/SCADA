@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 use App\Models\User; // Asegúrate de importar el modelo User
 
 class UserSeeder extends Seeder
@@ -13,65 +12,87 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        // Usuario: RAMOS BLANCO ALBERTO (RPE 10285)
         User::updateOrCreate(
-            ['correo' => 'juan.perez@email.com'], // Evita duplicados basándose en el correo
+            ['rpe' => '10285'], // RPE único para este usuario
             [
-                'nombres' => 'Juan',
-                'apellidos' => 'Pérez',
-                'password' => Hash::make('123456'),
-                'materias_impartidas' => json_encode(['Matemáticas', 'Física']),
-                'institucion' => 'UASLP',
-                'numero_celular' => '4441234567',
-                'rol' => 'docente',
+                'nombres'           => 'Alberto',
+                'apellidos'         => 'Ramos Blanco',
+                'correo'            => 'beto@uaslp.com',
+                'materias_impartidas' => json_encode([]),
+                'institucion'       => 'UASLP',
+                'numero_celular'    => '', // Puedes actualizarlo cuando tengas el dato
+                'rol'               => 'docente',
             ]
         );
 
+        // Usuario: Juan Pérez
         User::updateOrCreate(
-            ['correo' => 'maria.lopez@email.com'],
+            ['rpe' => '10001'], // RPE único para el usuario
             [
-                'nombres' => 'María',
-                'apellidos' => 'López',
-                'password' => Hash::make('abcdef'),
+                'nombres'           => 'Juan',
+                'apellidos'         => 'Pérez',
+                'correo'            => 'juan.perez@email.com',
+                'materias_impartidas' => json_encode(['Matemáticas', 'Física']),
+                'institucion'       => 'UASLP',
+                'numero_celular'    => '4441234567',
+                'rol'               => 'docente',
+            ]
+        );
+
+        // Usuario: María López
+        User::updateOrCreate(
+            ['rpe' => '10002'],
+            [
+                'nombres'           => 'María',
+                'apellidos'         => 'López',
+                'correo'            => 'maria.lopez@email.com',
                 'materias_impartidas' => json_encode(['Química', 'Estructura de Datos']),
-                'institucion' => 'UASLP',
-                'numero_celular' => '4447654321',
-                'rol' => 'admin',
+                'institucion'       => 'UASLP',
+                'numero_celular'    => '4447654321',
+                'rol'               => 'admin',
             ]
         );
+
+        // Usuario: Luis Felipe Rodríguez
         User::updateOrCreate(
-            ['correo' => 'luisf@gmail.com'], // Evita duplicados basándose en el correo
+            ['rpe' => '10003'],
             [
-                'nombres' => 'Luis Felipe',
-                'apellidos' => 'Rodríguez',
-                'password' => Hash::make('abcdef'),
-                'materias_impartidas' => json_encode(['']),
-                'institucion' => 'UASLP',
-                'numero_celular' => '1234567890',
-                'rol' => 'becario',
+                'nombres'           => 'Luis Felipe',
+                'apellidos'         => 'Rodríguez',
+                'correo'            => 'luisf@gmail.com',
+                'materias_impartidas' => json_encode([]),
+                'institucion'       => 'UASLP',
+                'numero_celular'    => '1234567890',
+                'rol'               => 'becario',
             ]
         );
+
+        // Usuario: Dana Rodríguez
         User::updateOrCreate(
-            ['correo' => 'dana@gmail.com'], // Evita duplicados basándose en el correo
+            ['rpe' => '10004'],
             [
-                'nombres' => 'dana',
-                'apellidos' => 'Rodríguez',
-                'password' => Hash::make('123456'),
-                'materias_impartidas' => json_encode(['']),
-                'institucion' => 'UASLP',
-                'numero_celular' => '1234567890',
-                'rol' => 'coordinador_ISI',
+                'nombres'           => 'Dana',
+                'apellidos'         => 'Rodríguez',
+                'correo'            => 'dana@gmail.com',
+                'materias_impartidas' => json_encode([]),
+                'institucion'       => 'UASLP',
+                'numero_celular'    => '1234567890',
+                'rol'               => 'coordinador_ISI',
             ]
         );
+
+        // Usuario: Fernando Ruiz
         User::updateOrCreate(
-            ['correo' => 'fer@gmail.com'], // Evita duplicados basándose en el correo
+            ['rpe' => '10005'],
             [
-                'nombres' => 'fernando',
-                'apellidos' => 'Ruiz',
-                'password' => Hash::make('123456'),
-                'materias_impartidas' => json_encode(['']),
-                'institucion' => 'UASLP',
-                'numero_celular' => '1234567890',
-                'rol' => 'coordinador_COMP',
+                'nombres'           => 'Fernando',
+                'apellidos'         => 'Ruiz',
+                'correo'            => 'fer@gmail.com',
+                'materias_impartidas' => json_encode([]),
+                'institucion'       => 'UASLP',
+                'numero_celular'    => '1234567890',
+                'rol'               => 'coordinador_COMP',
             ]
         );
     }

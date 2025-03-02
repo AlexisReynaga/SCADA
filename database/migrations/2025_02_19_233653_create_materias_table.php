@@ -57,7 +57,7 @@ return new class extends Migration {
         // Tabla de Bitácora
         Schema::create('bitacora', function (Blueprint $table) {
             $table->id('id_bitacora');
-            $table->unsignedBigInteger('id_usuario');
+            $table->string('id_usuario', 10);
             $table->string('accion');
             $table->dateTime('fecha_hora');
             $table->unsignedBigInteger('id_recurso')->nullable();
@@ -65,20 +65,20 @@ return new class extends Migration {
             $table->text('detalles');
             $table->timestamps();
             
-            $table->foreign('id_usuario')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_usuario')->references('rpe')->on('users')->onDelete('cascade');
         });
         
         // Tabla de Grupo-Usuario
         Schema::create('grupo_usuario', function (Blueprint $table) {
             $table->id('id_usuario_grupo');
-            $table->unsignedBigInteger('fk_clave_maestro');
+            $table->string('fk_clave_maestro', 10);
             $table->unsignedBigInteger('fk_id_grupo');
             $table->date('fecha_inscripcion');
             $table->string('estado');
             $table->timestamps();
             
             $table->foreign('fk_id_grupo')->references('id_grupo')->on('grupos')->onDelete('cascade');
-            $table->foreign('fk_clave_maestro')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('fk_clave_maestro')->references('rpe')->on('users')->onDelete('cascade');
         });
         
         // Tabla de Carpetas
@@ -130,7 +130,7 @@ return new class extends Migration {
         Schema::create('incidencias', function (Blueprint $table) {
             $table->id('id_incidencia');
             $table->unsignedBigInteger('id_sesion');
-            $table->unsignedBigInteger('id_usuario');
+            $table->string('id_usuario', 10);
             $table->string('tipo');
             $table->string('titulo');
             $table->text('descripcion');
@@ -140,19 +140,7 @@ return new class extends Migration {
             $table->timestamps();
             
             $table->foreign('id_sesion')->references('id_sesion')->on('sesiones')->onDelete('cascade');
-            $table->foreign('id_usuario')->references('id')->on('users')->onDelete('cascade');
-        });
-        
-        // Tabla de Grupo-Carpeta
-        Schema::create('grupo_carpeta', function (Blueprint $table) {
-            $table->id('id_grupo_carpeta');
-            $table->unsignedBigInteger('id_grupo');
-            $table->unsignedBigInteger('id_carpeta');
-            $table->string('permisos')->nullable();
-            $table->timestamps();
-    
-            $table->foreign('id_grupo')->references('id_grupo')->on('grupos')->onDelete('cascade');
-            $table->foreign('id_carpeta')->references('id_carpeta')->on('carpetas')->onDelete('cascade');
+            $table->foreign('id_usuario')->references('rpe')->on('users')->onDelete('cascade');
         });
     }
     
@@ -164,7 +152,6 @@ return new class extends Migration {
         Schema::dropIfExists('carpetas');
         Schema::dropIfExists('grupo_usuario');
         Schema::dropIfExists('bitacora');
-        Schema::dropIfExists('grupo_carpeta');
         Schema::dropIfExists('grupos');
         Schema::dropIfExists('subtemas');
         Schema::dropIfExists('temas');

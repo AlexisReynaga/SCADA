@@ -13,39 +13,39 @@
             <div class="bg-white p-8 rounded-lg shadow-lg w-96">
                 <h2 class="text-2xl font-bold text-center text-blue-600">Iniciar Sesión</h2>
 
-                <!-- Mensajes de error -->
-                @if (session('error'))
+                <!-- Mostrar errores -->
+                @if($errors->any())
                     <div class="bg-red-100 text-red-700 p-3 rounded-lg text-center my-4">
-                        {{ session('error') }}
+                        {{ $errors->first('login') }}
                     </div>
                 @endif
 
-                <!-- Formulario corregido -->
+                <!-- Formulario de login modificado -->
                 <form action="{{ route('login.process') }}" method="POST" class="mt-6">
                     @csrf
 
-                    <!-- Correo -->
+                    <!-- Campo RPE -->
                     <div class="mb-4">
-                        <label for="email" class="block text-gray-700 font-semibold">Correo Electrónico</label>
-                        <input type="email" id="email" name="email" required 
+                        <label for="rpe" class="block text-gray-700 font-semibold">RPE</label>
+                        <input type="text" id="rpe" name="rpe" required 
                             class="w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
                     </div>
 
-                    <!-- Contraseña -->
+                    <!-- Campo Contraseña -->
                     <div class="mb-4">
                         <label for="password" class="block text-gray-700 font-semibold">Contraseña</label>
                         <input type="password" id="password" name="password" required 
                             class="w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
                     </div>
 
-                    <!-- Botón de Envío corregido -->
+                    <!-- Botón de Envío -->
                     <button type="submit" 
                         class="w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition duration-300">
                         Iniciar Sesión
                     </button>
                 </form>
 
-                <!-- Links -->
+                <!-- Link para recuperar contraseña -->
                 <div class="mt-4 text-center">
                     <a href="#" class="text-blue-500 hover:underline">¿Olvidaste tu contraseña?</a>
                 </div>
