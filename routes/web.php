@@ -54,13 +54,18 @@ Route::middleware('auth')->group(function () {
             ->middleware('checkRole:admin,docente')
             ->name('home.materias.calendario.sesion.incidencia');
 
-    // Ruta para ver los programas de estudio, solo lo verá el becario
-    Route::get('/home/programa/cargaPrograma', [cargaProgramaController::class, 'cargaP'])
-            ->middleware('checkRole:admin,becario')
-            ->name('home.programa.cargaPrograma');
-    Route::get('/home/programa', [ProgramaDeEstudioController::class, 'programa'])
-            ->middleware('checkRole:admin,becario')
-            ->name('home.programa');
+//ruta para ver los programas de estudio, solo lo vera el becario
+Route::get('/home/programa/cargaPrograma', [cargaProgramaController::class, 'cargaP'])
+        ->middleware('checkRole:admin,becario')
+        ->name('home.programa.cargaPrograma');
+// Nueva ruta para procesar el formulario
+Route::post('/home/programa/guardarMateria', [CargaProgramaController::class, 'guardarMateria'])
+    ->middleware('checkRole:admin,becario')
+    ->name('home.programa.guardarMateria');
+Route::get('/home/programa', [ProgramaDeEstudioController::class, 'programa'])
+        ->middleware('checkRole:admin,becario')
+        ->name('home.programa');
+
 });
 
 Route::post('/home/materias/calendario/sesion', [sesionController::class, 'store'])
