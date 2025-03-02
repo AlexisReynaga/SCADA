@@ -67,12 +67,12 @@
                         <!-- Campo Temas -->
                         <div>
                             <label for="temas" class="block mb-2 font-bold text-blue-700 text-left text-base">
-                                Temas
+                                Carga de Temas y Subtemas
                             </label>
                             <div id="temas-container">
                                 
                             </div>
-                            <button type="button" id="add-tema" class="text-white font-bold rounded-lg w-full sm:w-auto px-5 py-2.5 text-center text-sm bg-blue-700 hover:bg-blue-500 transition-all duration-1000 ease-in-out">Agregar Tema y Subtema</button>
+                            <button type="button" id="add-tema" class="text-white font-bold rounded-lg w-full sm:w-auto px-5 py-2.5 text-center text-sm bg-blue-700 hover:bg-blue-500 transition-all duration-1000 ease-in-out">Agregar Tema</button>
                         </div>
                     </div>
                 

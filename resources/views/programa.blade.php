@@ -50,6 +50,9 @@
             @foreach ($materias as $materia)
                 <div id="expandableCard{{ $materia->id_clave }}" class="relative p-7 bg-white rounded-2xl shadow-lg transition-all duration-300 cursor-pointer gap-6 m-4">
                     <div class="flex items-center justify-between pb-4">
+                        <h2 class="text-2xl font-bold tracking-tight text-blue-700">
+                            {{ $materia->id_clave ?? 'Sin clave' }} - {{ $materia->nombre ?? 'Sin nombre' }}
+                        </h2>
                         <button id="toggleButton{{ $materia->id_clave }}" class="text-sm text-blue-600 focus:outline-none">
                             Expandir
                         </button>
@@ -57,9 +60,6 @@
 
                     <div id="additionalContent{{ $materia->id_clave }}" class="hidden mt-4 space-y-4">
                         <div class="grid grid-cols-5 grid-rows-2 gap-4">
-                            <h2 class="mb-2 text-lg font-bold tracking-tight text-gray-800">
-                                {{ $materia->id_clave ?? 'Sin clave' }} - {{ $materia->nombre ?? 'Sin nombre' }}
-                            </h2>
                             <div class="col-span-3">
                                 <p class="text-sm text-gray-500">Carrera:</p>
                                 <p class="text-lg font-semibold text-gray-800">{{ $materia->carrera ?? 'No especificada' }}</p>
