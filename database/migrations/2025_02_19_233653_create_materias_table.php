@@ -9,7 +9,7 @@ return new class extends Migration {
     {
         // Tabla de Materias
         Schema::create('materias', function (Blueprint $table) {
-            $table->string('clave', 10)->primary();
+            $table->id('id_clave'); 
             $table->string('nombre', 255);
             $table->integer('creditos');
             $table->string('carrera')->nullable();
@@ -23,13 +23,13 @@ return new class extends Migration {
         // Tabla de Temas
         Schema::create('temas', function (Blueprint $table) {
             $table->id('id_tema');
-            $table->string('fk_clave', 10);
+            $table->unsignedBigInteger('fk_clave'); 
             $table->integer('n_tema');
             $table->integer('horas_tema');
             $table->string('tema', 255);
             $table->timestamps();
-
-            $table->foreign('fk_clave')->references('clave')->on('materias')->onDelete('cascade');
+        
+            $table->foreign('fk_clave')->references('id_clave')->on('materias')->onDelete('cascade');
         });
 
         // Tabla de Subtemas
@@ -45,15 +45,15 @@ return new class extends Migration {
         // Tabla de Grupos
         Schema::create('grupos', function (Blueprint $table) {
             $table->id('id_grupo');
-            $table->string('fk_id_materia', 10);
+            $table->unsignedBigInteger('fk_id_materia'); 
             $table->string('nombre_grupo');
             $table->string('horario');
             $table->integer('capacidad');
             $table->timestamps();
 
-            $table->foreign('fk_id_materia')->references('clave')->on('materias')->onDelete('cascade');
+            // Establecer la clave foránea
+            $table->foreign('fk_id_materia')->references('id_clave')->on('materias')->onDelete('cascade');
         });
-
         // Tabla de Bitácora
         Schema::create('bitacora', function (Blueprint $table) {
             $table->id('id_bitacora');

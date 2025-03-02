@@ -58,8 +58,13 @@ Route::get('/home/materias/calendario/sesion/incidencia', [incidenciaController:
 Route::get('/home/programa/cargaPrograma', [cargaProgramaController::class, 'cargaP'])
         ->middleware('checkRole:admin,becario')
         ->name('home.programa.cargaPrograma');
+// Nueva ruta para procesar el formulario
+Route::post('/home/programa/guardarMateria', [CargaProgramaController::class, 'guardarMateria'])
+    ->middleware('checkRole:admin,becario')
+    ->name('home.programa.guardarMateria');
 Route::get('/home/programa', [ProgramaDeEstudioController::class, 'programa'])
         ->middleware('checkRole:admin,becario')
         ->name('home.programa');
+
 });
 Route::post('/home/materias/calendario/sesion', [sesionController::class, 'store'])->name('home.materias.calendario.sesion.store');
