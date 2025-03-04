@@ -95,5 +95,18 @@ class UserSeeder extends Seeder
                 'rol'               => 'coordinador_COMP',
             ]
         );
+
+        User::updateOrCreate(
+            ['rpe' => '16131'],
+            [
+                'nombres'           => 'Alberto Salvador',
+                'apellidos'         => 'Nuñez Varela',
+                'correo'            => 'alberto@uaslp.mx',
+                'materias_impartidas' => json_encode([]),
+                'institucion'       => 'UASLP',
+                'numero_celular'    => '1432561',
+                'rol'               => 'docente',
+            ]
+        );
     }
 }
