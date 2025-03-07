@@ -21,4 +21,9 @@ class Materia extends Model
     {
         return $this->hasMany(Tema::class, 'fk_clave', 'id_clave');
     }
+     // Relación con grupos
+     public function grupos()
+     {
+         return $this->hasMany(Grupo::class, 'fk_id_materia', 'id_clave');
+     }
 }

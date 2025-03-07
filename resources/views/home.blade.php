@@ -6,7 +6,7 @@
     <div class="w-10/12 py-4 px-2 mx-auto max-w-screen-xl lg:py-3 lg:px-2 
         border-4 border-gray-300 rounded-lg bg-gray-200 mt-0 pt-0 flex justify-center">
         <div class="w-7/12 p-2 mt-2 bg-white text-white rounded-lg transition-all duration-[300ms] ease-in-out">
-            <h1 class="text-4xl tracking-tight font-extrabold text-blue-800 mb-3 pb-3 pt-3 mt-3">Bienvenido al sistema SCADA</h1>
+            <h1 class="text-4xl tracking-tight font-extrabold text-blue-800 mb-3 pb-3 pt-3 mt-3">Bienvenido al sistema SCAAD</h1>
         </div>
         
     </div>
