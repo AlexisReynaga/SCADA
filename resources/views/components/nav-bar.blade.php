@@ -9,26 +9,26 @@
     <div id="sidebar" class="fixed top-0 left-0 w-64 bg-blue-800 text-white h-screen p-5 transition-transform transform -translate-x-full z-50">
         <h2 class="text-xl font-semibold">Menú</h2>
         <ul class="mt-4 space-y-2">
-            <li><a href="{{ route('home') }}" class="block p-2 hover:bg-blue-500 rounded">Inicio</a></li>
-            <li><a href="{{ route('home.perfil') }}" class="block p-2 hover:bg-blue-500 rounded">Perfil</a></li>
+            <li><a href="{{ route('home') }}" class="block p-2 hover:bg-blue-600 rounded">Inicio</a></li>
+            <li><a href="{{ route('home.perfil') }}" class="block p-2 hover:bg-blue-600 rounded">Perfil</a></li>
             <!--unicamente al rol de admin le aparecera la vista de la bitacora y programas de estudio (cambiarlo
             por el de becario y coordinadores de area-->
             @if(in_array(auth()->user()->rol, ['admin', 'coordinador_ISI', 'coordinador_COMP']))
-                <li><a href="{{ route('home.bitacora') }}" class="block p-2 hover:bg-blue-500 rounded">Bitácora</a></li>
+                <li><a href="{{ route('home.bitacora') }}" class="block p-2 hover:bg-blue-600 rounded">Bitácora</a></li>
             @endif
             @if(in_array(auth()->user()->rol, ['admin', 'becario']))
-                <li><a href="{{ route('home.programa')}}" class="block p-2 hover:bg-blue-500 rounded">Programas de estudio</a></li>
+                <li><a href="{{ route('home.programa')}}" class="block p-2 hover:bg-blue-600 rounded">Programas de estudio</a></li>
             @endif
             @if(auth()->user()->rol === 'admin')
-                <li><a href="{{ route('home.cargaDocMat')}}" class="block p-2 hover:bg-blue-500 rounded">Captura de Usuarios</a></li>
+                <li><a href="{{ route('home.cargaDocMat')}}" class="block p-2 hover:bg-blue-600 rounded">Administrar Usuarios</a></li>
             @endif
             @if(in_array(auth()->user()->rol, ['admin', 'docente']))
-            <li><a href="{{ route('home.materias')}}" class="block p-2 hover:bg-blue-500 rounded">Materias</a></li>
+            <li><a href="{{ route('home.materias')}}" class="block p-2 hover:bg-blue-600 rounded">Materias</a></li>
             @endif
             <li>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="w-full text-left block p-2 hover:bg-red-500 rounded">
+                    <button type="submit" class="w-full text-left block p-2 hover:bg-red-600 rounded">
                         Cerrar Sesión
                     </button>
                 </form>
