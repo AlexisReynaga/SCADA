@@ -13,6 +13,7 @@ use App\Http\Controllers\incidenciaController;
 use App\Http\Controllers\ProgramaDeEstudioController;
 use App\Http\Controllers\cargaProgramaController;
 use App\Http\Controllers\cargaDocMatController;
+use App\Http\Controllers\UserController;
 
 // Ruta de todas las páginas web
 Route::get('/', [loginController::class, 'login'])->name('login');
@@ -65,6 +66,14 @@ Route::post('/home/programa/guardarMateria', [CargaProgramaController::class, 'g
 Route::get('/home/programa', [ProgramaDeEstudioController::class, 'programa'])
         ->middleware('checkRole:admin,becario')
         ->name('home.programa');
+// Ruta disponible únicamente para el rol de admin
+Route::get('/home/usuarios', [UserController::class, 'muestraUsarios'])
+        ->middleware('checkRole:admin')
+        ->name('home.usuarios');
+Route::get('eliminarUser/{rpe}', [UserController::class, 'eliminaUsuario'])->name('usuario.eliminar');
+
+Route::post('editarUsuario/{rpe}', [UserController::class, 'editaUsuario'])-> name('usuario.editar');
+Route::post('agregaUsuario', [UserController::class, 'agregaUsuario'])-> name('usuario.agregar');
 
 });
 

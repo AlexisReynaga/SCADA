@@ -20,6 +20,7 @@
                 <li><a href="{{ route('home.programa')}}" class="block p-2 hover:bg-blue-500 rounded">Programas de estudio</a></li>
             @endif
             @if(auth()->user()->rol === 'admin')
+                <li><a href="{{ route('home.usuarios')}}" class="block p-2 hover:bg-blue-500 rounded">Alta de Usuarios</a></li>
                 <li><a href="{{ route('home.cargaDocMat')}}" class="block p-2 hover:bg-blue-500 rounded">Captura de Usuarios</a></li>
             @endif
             @if(in_array(auth()->user()->rol, ['admin', 'docente']))
