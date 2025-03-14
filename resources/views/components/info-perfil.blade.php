@@ -2,48 +2,74 @@
     $user = Auth::user();
 @endphp
 
-<h1 class="text-center font-bold text-xl">INFORMACIÓN GENERAL</h1>
+<div class="mx-auto max-w-screen text-center mb-0 lg:mb-0 bg-gray-100">
+  <h2 class="text-4xl tracking-tight font-extrabold text-blue-800 dark:text-gray pb-3">Información General</h2>
+</div>
 
 <div class="flex justify-center items-start min-h-screen bg-gray-100 pt-8">
-    <div class="bg-white p-8 rounded-lg shadow-lg max-w-3xl w-full">
-        <div class="grid gap-6 mb-6 md:grid-cols-2">
-            <div>
-                <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900">Nombre</label>
-                <p class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
-                    {{ $user->nombres }}
-                </p>
-            </div>
-            <div>
-                <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900">Apellido</label>
-                <p class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
-                    {{ $user->apellidos }}
-                </p>
-            </div>
-            <div>
-                <label for="company" class="block mb-2 text-sm font-medium text-gray-900">Institución</label>
-                <p class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
-                    {{ $user->institucion }}
-                </p>
-            </div>  
-            <div>
-                <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">Número Celular</label>
-                <p class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
-                    {{ $user->numero_celular }}
-                </p>
-            </div>
-        </div>
-        <div class="mb-6">
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Correo Electrónico</label>
-            <p class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
-                {{ $user->correo }}
-            </p>
-        </div> 
-        <div class="mb-6">
-            <label for="role" class="block mb-2 text-sm font-medium text-gray-900">Rol</label>
-            <p class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
-                {{ ucfirst($user->rol) }} <!-- Convierte la primera letra en mayúscula -->
-            </p>
-        </div>
-        
-    </div>
+  <div class="bg-white p-8 rounded-lg shadow-2xl max-w-3xl w-full ">
+      <div class="space-y-12">
+          <div class="border-b border-gray-900/10 pb-12">
+              <h2 class="text-base/7 font-semibold text-blue-800">Información personal</h2>
+
+              <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                  <div class="sm:col-span-2">
+                  <label for="first-name" class="block text-sm/6 font-medium text-gray-900">Nombre(s):</label>
+                      <div class="mt-2">
+                          <p class="mt-1 text-sm/6 text-gray-600">{{ $user->nombres }}</p>
+                      </div>
+                  </div>
+
+                  <div class="sm:col-span-2">
+                  <label for="last-name" class="block text-sm/6 font-medium text-gray-900">Apellidos:</label>
+                      <div class="mt-2">
+                          <p class="mt-1 text-sm/6 text-gray-600">{{ $user->apellidos }}</p>
+                      </div>
+                  </div>
+
+                  <div class="sm:col-span-2">
+                  <label for="country" class="block text-sm/6 font-medium text-gray-900">Rol:</label>
+                      <div class="mt-2">
+                          <p class="mt-1 text-sm/6 text-gray-600">
+                            @if ($user->rol == 'admin')
+                                Administrador
+                            @elseif ($user->rol == 'jefe_area')
+                                Jefe de área
+                            @elseif ($user->rol == 'coordinador_ISI')
+                                Coordinador de Sistemas Inteligentes
+                            @elseif ($user->rol == 'coordinador_COMP')
+                                Coordinador de Computación          
+                            @elseif ($user->rol == 'docente')
+                                Docente
+                            @elseif ($user->rol == 'becario')
+                                Becario
+                            @endif
+                          </p>
+                      </div>
+                  </div>
+
+                  <div class="sm:col-span-2">
+                  <label for="email" class="block text-sm/6 font-medium text-gray-900">Institución:</label>
+                      <div class="mt-2">
+                          <p class="mt-1 text-sm/6 text-gray-600">{{ $user->institucion }}</p>
+                      </div>
+                  </div>
+
+                  <div class="sm:col-span-2">
+                  <label for="country" class="block text-sm/6 font-medium text-gray-900">Número Celular:</label>
+                      <div class="mt-2">
+                          <p class="mt-1 text-sm/6 text-gray-600">{{ $user->numero_celular }}</p>
+                      </div>
+                  </div>
+
+                  <div class="sm:col-span-2">
+                  <label for="street-address" class="block text-sm/6 font-medium text-gray-900">Correo:</label>
+                      <div class="mt-2">
+                          <p class="mt-1 text-sm/6 text-gray-600">{{ $user->correo }}</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
