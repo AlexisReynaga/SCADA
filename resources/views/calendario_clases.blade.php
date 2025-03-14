@@ -11,10 +11,9 @@
                 Archivos de la sesión
             </a>
         </div>
-
         <!-- Filtros -->
-        <div class="text-center mb-4 w-1/2 bg-gray-200 p-6 rounded-lg shadow-md border border-gray-300 mx-auto">
-            <label for="filterMonth" class="mr-2 font-bold text-blue-800">Filtrar clases</label>
+        <div class="py-4 px-2 mx-auto max-w-screen-xl lg:py-3 lg:px-2 
+         rounded-lg bg-gray-100 flex justify-around shadow-lg p-5 mb-5">
             <select id="filterMonth" class="px-4 py-2 border rounded-lg ">
                 <option value="">Todos los meses</option>
                 <option value="0">Enero</option>
@@ -41,20 +40,13 @@
 
         <!-- Contenedor del calendario -->
         <div
-            class="grid grid-cols-5 gap-4 bg-gray-200 p-6 rounded-lg shadow-md border border-gray-300"
+            class="grid grid-cols-5 gap-2 bg-gray-100 p-0 sm:p-2 shadow-lg rounded-lg mx-auto w-full max-w-screen-xl lg:py-1 lg:px-1"
             id="calendar"
             data-url="{{ route('home.materias.calendario.sesion') }}"
         >
             <!-- Encabezado (Días de la semana) -->
-            <div class="text-center font-bold text-gray-900">Lunes</div>
-            <div class="text-center font-bold text-gray-900">Martes</div>
-            <div class="text-center font-bold text-gray-900">Miércoles</div>
-            <div class="text-center font-bold text-gray-900">Jueves</div>
-            <div class="text-center font-bold text-gray-900">Viernes</div>
         </div>
 
-        <!-- Tu script debe ir después del elemento #calendar -->
         <script src="{{ asset('js/calendario.js') }}"></script>
-        <!-- Eliminamos el segundo div con id="calendar" -->
     </section>
 </x-esqueleto>
