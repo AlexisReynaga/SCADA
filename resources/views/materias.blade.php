@@ -3,10 +3,10 @@
     <x-rutas/>
 
     <section class="bg-white pt-6">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 
-            border-4 border-gray-300 rounded-lg bg-gray-200 mt-0 pt-0">
+        <div class="px-4 mx-auto max-w-screen-xl lg:py-10 lg:px-6 
+             rounded-lg bg-gray-100 mb-3 shadow-2xl">
             <div class="mx-auto max-w-screen-sm text-center mb-0 lg:mb-0">
-                <h2 class="text-4xl tracking-tight font-extrabold text-blue-800 dark:text-gray mb-3 pb-3">Materias</h2>
+                <h2 class="text-3xl tracking-tight font-extrabold text-blue-800 dark:text-gray mb-3 pb-3">Materias</h2>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

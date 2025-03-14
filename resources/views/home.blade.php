@@ -116,6 +116,22 @@
                     </a>      
                 </div>
             </div>
+            <div class="w-9/12 py-4 px-2 lg:py-3 lg:px-2 
+                rounded-lg bg-gray-100 mt-5 shadow-2xl">
+                <div class="mx-auto max-w-screen-sm text-center mb-0 lg:mb-0">
+                    <h2 class="text-lg tracking-tight font-extrabold text-blue-800 dark:text-gray mb-3 pb-3">Agregar Usuarios</h2>
+                </div>
+                <div class="grid sm:grid-rows-1 lg:grid-rows-1 gap-6 mb-2">
+                    <a href="{{ route('home.usuarios')}}" class="block w-full p-3 bg-white rounded-lg shadow-md 
+                                dark:bg-blue-800 dark:border-blue-800 
+                                dark:hover:bg-blue-600 transition-all duration-[400ms] ease-in-out 
+                                hover:shadow-xl">
+                        <h6 class=" text-base font-bold tracking-tight text-gray-900 dark:text-white text-center">
+                            Alta de Usuarios
+                        </h6>
+                    </a>    
+                </div>
+            </div>
         </div> 
     @endif
     @if(in_array(auth()->user()->rol, ['becario']))
