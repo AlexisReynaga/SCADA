@@ -97,8 +97,8 @@
                                 <td class="border px-4 py-2">{{ $user->rol }}</td>
                                 <td class="border px-4 py-2">
                                     @if($user->rol === 'docente')
-                                        <!-- Al hacer clic se recarga la vista con teacher_rpe en la query string -->
-                                        <a href="{{ route('home.cargaDocMat', array_merge(request()->all(), ['teacher_rpe' => $user->rpe])) }}" 
+                                        <!-- Redirige a la vista especial para asignar grupo -->
+                                        <a href="{{ route('asignarGrupo', ['teacher_rpe' => $user->rpe]) }}" 
                                            class="bg-green-500 text-white p-2 rounded">
                                             Asignar Grupo
                                         </a>
@@ -110,96 +110,11 @@
                 </table>
             </div>
 
-            <a href="{{ route('home')}}"
+            <a href="{{ route('home') }}"
                class="text-white font-bold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center 
                       bg-blue-700 hover:bg-blue-500 transition-all duration-1000 ease-in-out">
                 Regresar
             </a>
-
-            <!-- Sección de asignación de grupo (solo se muestra si se selecciona un docente) -->
-            @if(isset($teacher))
-            <div class="mt-8 bg-white p-6 rounded shadow-md">
-                <h2 class="text-2xl font-bold mb-4">
-                    Asignar Grupo a: {{ $teacher->nombres }} {{ $teacher->apellidos }}
-                </h2>
-                <form action="{{ route('home.asignarGrupo.store') }}" method="POST">
-                    @csrf
-                    <!-- Campo para asignar el ID del grupo de forma manual -->
-                    <div class="mb-4">
-                        <label for="id_grupo" class="block text-gray-700 text-sm font-bold mb-2">
-                            ID del Grupo
-                        </label>
-                        <input type="number" name="id_grupo" id="id_grupo" required
-                               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none"
-                               placeholder="Ingrese el ID del grupo">
-                        @error('id_grupo')
-                            <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <!-- Campo oculto para el docente -->
-                    <input type="hidden" name="teacher_rpe" value="{{ $teacher->rpe }}">
-
-                    <!-- Nombre del grupo -->
-                    <div class="mb-4">
-                        <label for="nombre_grupo" class="block text-gray-700 text-sm font-bold mb-2">
-                            Nombre del Grupo
-                        </label>
-                        <input type="text" name="nombre_grupo" id="nombre_grupo" required
-                               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none">
-                        @error('nombre_grupo')
-                            <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <!-- Horario -->
-                    <div class="mb-4">
-                        <label for="horario" class="block text-gray-700 text-sm font-bold mb-2">
-                            Horario
-                        </label>
-                        <input type="text" name="horario" id="horario" required
-                               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none">
-                        @error('horario')
-                            <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <!-- Capacidad -->
-                    <div class="mb-4">
-                        <label for="capacidad" class="block text-gray-700 text-sm font-bold mb-2">
-                            Capacidad
-                        </label>
-                        <input type="number" name="capacidad" id="capacidad" required
-                               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none">
-                        @error('capacidad')
-                            <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <!-- Selección de Materia -->
-                    <div class="mb-4">
-                        <label for="fk_id_materia" class="block text-gray-700 text-sm font-bold mb-2">
-                            Materia
-                        </label>
-                        <select name="fk_id_materia" id="fk_id_materia" required
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none">
-                            <option value="">Seleccione una materia</option>
-                            @foreach($materias as $materia)
-                                <option value="{{ $materia->id_clave }}">{{ $materia->nombre }}</option>
-                            @endforeach
-                        </select>
-                        @error('fk_id_materia')
-                            <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded">
-                        Asignar Grupo
-                    </button>
-                </form>
-            </div>
-            @endif
-
         </div>   
     </div>
 </x-esqueleto>

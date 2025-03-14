@@ -8,6 +8,7 @@ use App\Models\Grupo;
 use App\Models\GrupoUsuario;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Validation\Rule;
 
 class cargaDocMatController extends Controller
 {
@@ -37,28 +38,40 @@ class cargaDocMatController extends Controller
         // Obtener los usuarios según los filtros
         $users = $query->get();
 
-        // Si se seleccionó un docente para asignar grupo
-        $teacher = null;
-        $materias = null;
-        if ($request->has('teacher_rpe') && !empty($request->teacher_rpe)) {
-            $teacher = User::where('rpe', $request->teacher_rpe)->first();
-            if ($teacher && $teacher->rol === 'docente') {
-                $materias = Materia::all();
-            } else {
-                $teacher = null;
-            }
-        }
-
-        return view('cargaDocMat', compact('users', 'teacher', 'materias'));
+        // Se elimina el envío de variables para el formulario de asignación en esta vista
+        return view('cargaDocMat', compact('users'));
     }
 
-    public function asignarGrupo(Request $request)
+    // Método para mostrar la vista de asignación de grupo
+    public function asignarGrupo($teacher_rpe)
     {
+        $teacher = User::where('rpe', $teacher_rpe)->firstOrFail();
+
+        if($teacher->rol !== 'docente') {
+            return redirect()->route('home.cargaDocMat')->with('error', 'El usuario seleccionado no es docente.');
+        }
+
+        $materias = Materia::all();
+
+        return view('asignar_grupo', compact('teacher', 'materias'));
+    }
+
+    // Método para procesar el formulario de asignación de grupo
+    public function asignarGrupoStore(Request $request)
+    {
+        // Genera la lista de horarios permitidos (de 7:00 am a 8:00 pm)
+        $allowedHorarios = [];
+        for ($hour = 7; $hour < 20; $hour++) {
+            $start = date("g:i a", strtotime($hour . ":00"));
+            $end = date("g:i a", strtotime(($hour + 1) . ":00"));
+            $allowedHorarios[] = $start . " - " . $end;
+        }
+
         $validated = $request->validate([
             'id_grupo'      => 'required|numeric|unique:grupos,id_grupo',
             'teacher_rpe'   => 'required|exists:users,rpe',
             'nombre_grupo'  => 'required|string|max:255',
-            'horario'       => 'required|string|max:255',
+            'horario'       => ['required', 'string', Rule::in($allowedHorarios)],
             'capacidad'     => 'required|integer',
             'fk_id_materia' => 'required|exists:materias,id_clave',
         ]);
