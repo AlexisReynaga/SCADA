@@ -62,8 +62,6 @@
                             <input type="hidden" id="carrera" name="carrera">
                         </div>
                         
-                        
-                        
                         <!-- Campo Temas -->
                         <div>
                             <label for="temas" class="block mb-2 font-bold text-blue-700 text-left text-base">

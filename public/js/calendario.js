@@ -1,8 +1,19 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Periodos de los semestres
+    // Obtener el año actual
+    const currentYear = new Date().getFullYear();
+
+    // Definir los periodos de los semestres en función del año actual
     const semestres = {
-        primero: { inicio: new Date(2025, 0, 20), fin: new Date(2025, 4, 30) }, // 20 Ene - 30 May
-        segundo: { inicio: new Date(2025, 7, 20), fin: new Date(2025, 11, 10) } // 20 Ago - 10 Dic
+        primero: { 
+            // Primer semestre: 20 de enero a 30 de mayo del año actual
+            inicio: new Date(currentYear, 0, 20),  // 0 = Enero
+            fin: new Date(currentYear, 4, 30)      // 4 = Mayo
+        },
+        segundo: { 
+            // Segundo semestre: 20 de agosto a 10 de diciembre del año actual
+            inicio: new Date(currentYear, 7, 20),  // 7 = Agosto
+            fin: new Date(currentYear, 11, 10)     // 11 = Diciembre
+        }
     };
 
     let semestreActual = 'primero'; // Semestre actual
@@ -25,11 +36,11 @@ document.addEventListener("DOMContentLoaded", function() {
     function generarCalendario() {
         // Limpiar calendario antes de regenerarlo
         calendarContainer.innerHTML = `
-            <div class="text-center font-bold text-gray-900">Lunes</div>
-            <div class="text-center font-bold text-gray-900">Martes</div>
-            <div class="text-center font-bold text-gray-900">Miércoles</div>
-            <div class="text-center font-bold text-gray-900">Jueves</div>
-            <div class="text-center font-bold text-gray-900">Viernes</div>
+            <div class="text-center font-bold text-blue-900 text-xs sm:text-sm md:text-base">Lunes</div>
+            <div class="text-center font-bold text-blue-900 text-xs sm:text-sm md:text-base">Martes</div>
+            <div class="text-center font-bold text-blue-900 text-xs sm:text-sm md:text-base">Miércoles</div>
+            <div class="text-center font-bold text-blue-900 text-xs sm:text-sm md:text-base">Jueves</div>
+            <div class="text-center font-bold text-blue-900 text-xs sm:text-sm md:text-base">Viernes</div>
         `;
 
         const { inicio, fin } = semestres[semestreActual];
@@ -55,11 +66,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
 
                     let diaElemento = document.createElement("div");
-                    diaElemento.className = `p-4 ${bgColor} shadow-md rounded-lg text-center transition-all duration-2000`;
+                    diaElemento.className = `p-4 md:p-6 ${bgColor} shadow-md rounded-lg text-center transition-all duration-2000`;
                     diaElemento.innerHTML = `
-                        <p class="text-gray-700 font-bold">${diaTexto}</p>
+                        <p class="text-gray-700 font-bold text-xs md:text-base">${diaTexto}</p>
                         <a href="${sesionUrl}">
-                            <button class="w-full p-2 mt-2 bg-blue-800 text-white rounded-lg hover:bg-blue-500 transition-all duration-[300ms] ease-in-out">
+                            <button class="w-full sm:w-auto p-2 mt-2 bg-blue-800 text-white rounded-lg hover:bg-blue-500 transition-all duration-[300ms] ease-in-out text-xs md:text-sm">
                                 Sesión
                             </button>
                         </a>
