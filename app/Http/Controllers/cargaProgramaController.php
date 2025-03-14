@@ -17,25 +17,28 @@ class CargaProgramaController extends Controller
 
     public function guardarMateria(Request $request)
     {
-        // Validación
+        // Validación incluyendo el campo id_clave y creditos
         $request->validate([
-            'materia' => 'required|string|max:255',
-            'horas' => 'required|integer|min:1',
-            'carrera' => 'required|string|in:Ingeniería en Sistemas Inteligentes,Ingeniería en Sistemas Computacionales',
-            'temas' => 'array',
-            'temas.*' => 'string|max:255', // Cada tema es una cadena de texto
+            'id_clave' => 'required|numeric|unique:materias,id_clave',
+            'materia'  => 'required|string|max:255',
+            'creditos' => 'required|integer|min:1',
+            'horas'    => 'required|integer|min:1',
+            'carrera'  => 'required|string|in:Ingeniería en Sistemas Inteligentes,Ingeniería en Sistemas Computacionales',
+            'temas'    => 'array',
+            'temas.*'  => 'string|max:255', // Cada tema es una cadena de texto
             'subtemas' => 'array',
             'subtemas.*' => 'array', // Cada subtema pertenece a un tema
         ]);
 
         DB::beginTransaction();
         try {
-            // Guardar la Materia
+            // Guardar la Materia usando el id_clave y los créditos 
             $materia = Materia::create([
-                'nombre' => $request->materia,
-                'total_horas' => $request->horas,
-                'creditos' => 0,
-                'carrera' => $request->carrera,
+                'id_clave'     => $request->id_clave,
+                'nombre'       => $request->materia,
+                'total_horas'  => $request->horas,
+                'creditos'     => $request->creditos,
+                'carrera'      => $request->carrera,
                 'horas_teoria' => 0,
                 'horas_practica' => 0,
                 'horas_autonomas' => 0,
@@ -44,10 +47,10 @@ class CargaProgramaController extends Controller
             // Guardar los Temas y Subtemas
             foreach ($request->temas as $index => $temaNombre) {
                 $tema = Tema::create([
-                    'fk_clave' => $materia->id_clave,
-                    'n_tema' => $index + 1, // Número de tema
+                    'fk_clave'   => $materia->id_clave,
+                    'n_tema'     => $index + 1, // Número de tema
                     'horas_tema' => 0, 
-                    'tema' => $temaNombre
+                    'tema'       => $temaNombre
                 ]);
 
                 // Guardar Subtemas del Tema correspondiente
@@ -56,7 +59,7 @@ class CargaProgramaController extends Controller
                         if (!empty($subtemaNombre)) {
                             Subtema::create([
                                 'fk_id_tema' => $tema->id_tema,
-                                'subtema' => $subtemaNombre
+                                'subtema'    => $subtemaNombre
                             ]);
                         }
                     }
@@ -72,4 +75,3 @@ class CargaProgramaController extends Controller
         }
     }
 }
-
