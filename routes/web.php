@@ -15,7 +15,6 @@ use App\Http\Controllers\cargaProgramaController;
 use App\Http\Controllers\cargaDocMatController;
 use App\Http\Controllers\UserController;
 
-// Ruta de todas las páginas web
 Route::get('/', [loginController::class, 'login'])->name('login');
 Route::post('/login', [loginController::class, 'authenticate'])->name('login.process');
 Route::post('/logout', [loginController::class, 'logout'])->name('logout');
@@ -23,10 +22,8 @@ Route::post('/logout', [loginController::class, 'logout'])->name('logout');
 Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-    // Ruta para mostrar el perfil: home/perfil en vez de perfil
     Route::get('/home/perfil', [PerfilController::class, 'perfil'])->name('home.perfil');
 
-    // Rutas y accesos para el docente y administrador
     Route::get('/home/materias', [materiaController::class, 'materias'])
             ->middleware('checkRole:admin,docente')
             ->name('home.materias');
@@ -34,17 +31,14 @@ Route::middleware('auth')->group(function () {
             ->middleware('checkRole:admin,docente')
             ->name('home.materias.calendario');
 
-    // Ruta disponible únicamente para el rol de admin
     Route::get('/home/cargaDocMat', [cargaDocMatController::class, 'cargaDocMat'])
             ->middleware('checkRole:admin')
             ->name('home.cargaDocMat');
 
-    // Ruta disponible únicamente para los roles de admin, coordinadores, jefe de área
     Route::get('/home/bitacora', [BitacoraController::class, 'bitacora'])
             ->middleware('checkRole:admin,coordinador_ISI,coordinador_COMP')
             ->name('home.bitacora');
 
-    // Rutas y accesos para el docente y administrador
     Route::get('/home/materias/calendario/sesion', [sesionController::class, 'sesion'])
             ->middleware('checkRole:admin,docente')
             ->name('home.materias.calendario.sesion');
@@ -55,37 +49,33 @@ Route::middleware('auth')->group(function () {
             ->middleware('checkRole:admin,docente')
             ->name('home.materias.calendario.sesion.incidencia');
 
-//ruta para ver los programas de estudio, solo lo vera el becario
-Route::get('/home/programa/cargaPrograma', [cargaProgramaController::class, 'cargaP'])
-        ->middleware('checkRole:admin,becario')
-        ->name('home.programa.cargaPrograma');
-// Nueva ruta para procesar el formulario
-Route::post('/home/programa/guardarMateria', [CargaProgramaController::class, 'guardarMateria'])
-    ->middleware('checkRole:admin,becario')
-    ->name('home.programa.guardarMateria');
-Route::get('/home/programa', [ProgramaDeEstudioController::class, 'programa'])
-        ->middleware('checkRole:admin,becario')
-        ->name('home.programa');
-// Ruta disponible únicamente para el rol de admin
-Route::get('/home/usuarios', [UserController::class, 'muestraUsarios'])
-        ->middleware('checkRole:admin')
-        ->name('home.usuarios');
-Route::get('eliminarUser/{rpe}', [UserController::class, 'eliminaUsuario'])->name('usuario.eliminar');
+    Route::get('/home/programa/cargaPrograma', [cargaProgramaController::class, 'cargaP'])
+            ->middleware('checkRole:admin,becario')
+            ->name('home.programa.cargaPrograma');
+    Route::post('/home/programa/guardarMateria', [CargaProgramaController::class, 'guardarMateria'])
+            ->middleware('checkRole:admin,becario')
+            ->name('home.programa.guardarMateria');
+    Route::get('/home/programa', [ProgramaDeEstudioController::class, 'programa'])
+            ->middleware('checkRole:admin,becario')
+            ->name('home.programa');
 
-Route::post('editarUsuario/{rpe}', [UserController::class, 'editaUsuario'])-> name('usuario.editar');
-Route::post('agregaUsuario', [UserController::class, 'agregaUsuario'])-> name('usuario.agregar');
-
+    Route::get('/home/usuarios', [UserController::class, 'muestraUsarios'])
+            ->middleware('checkRole:admin')
+            ->name('home.usuarios');
+    Route::get('eliminarUser/{rpe}', [UserController::class, 'eliminaUsuario'])->name('usuario.eliminar');
+    Route::post('editarUsuario/{rpe}', [UserController::class, 'editaUsuario'])-> name('usuario.editar');
+    Route::post('agregaUsuario', [UserController::class, 'agregaUsuario'])-> name('usuario.agregar');
 });
 
 Route::post('/home/materias/calendario/sesion', [sesionController::class, 'store'])
         ->name('home.materias.calendario.sesion.store');
 
-// Ruta para mostrar la vista de usuarios (y el formulario de asignación si se selecciona un docente)
-Route::get('/home/cargaDocMat', [cargaDocMatController::class, 'cargaDocMat'])
-      ->middleware('checkRole:admin')
-      ->name('home.cargaDocMat');
-
 // Ruta para procesar el formulario de asignación de grupo
-Route::post('/home/asignar-grupo', [cargaDocMatController::class, 'asignarGrupo'])
-      ->middleware('checkRole:admin')
-      ->name('home.asignarGrupo.store');
+Route::post('/home/asignar-grupo', [cargaDocMatController::class, 'asignarGrupoStore'])
+        ->middleware('checkRole:admin')
+        ->name('home.asignarGrupo.store');
+
+// Nueva ruta para mostrar la vista de asignación de grupo
+Route::get('/asignar-grupo/{teacher_rpe}', [cargaDocMatController::class, 'asignarGrupo'])
+        ->middleware('checkRole:admin')
+        ->name('asignarGrupo');
